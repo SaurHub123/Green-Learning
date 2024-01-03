@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:green_learning/views/auth/first.dart';
+import 'package:green_learning/views/auth/auth_selection_screen.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -15,10 +15,9 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    // TODO: implement initState
     Timer(
       const Duration(seconds: 2),
-          () => Get.offAll(() => const First()),
+      () => Get.offAll(() => const AuthSelectionScreen()),
     );
     super.initState();
   }
