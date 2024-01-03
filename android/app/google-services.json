@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "217175879702",
+    "project_id": "green-learning-416d6",
+    "storage_bucket": "green-learning-416d6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:217175879702:android:e33fbadd3f02de45530537",
+        "android_client_info": {
+          "package_name": "com.impossibleshadowstorm.green_learning"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzQktFOJs6W0tMoQG7DFCsapqiMXgF-J4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
