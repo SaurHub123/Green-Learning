@@ -23,4 +23,21 @@ class CustomButton {
       ),
     );
   }
+
+  static Widget primaryProgressButton() {
+    return Container(
+      width: 100.w,
+      padding: EdgeInsets.symmetric(vertical: 3.w),
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+        color: Constants.primaryColor,
+        borderRadius: const BorderRadius.all(Radius.circular(50)),
+      ),
+      child: const Center(
+        child: CircularProgressIndicator(
+          color: Colors.white,
+        ),
+      ),
+    );
+  }
 }

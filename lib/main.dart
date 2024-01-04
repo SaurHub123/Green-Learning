@@ -1,16 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:green_learning/controllers/auth_controller.dart';
+import 'package:green_learning/controllers/main_application_controller.dart';
 import 'package:green_learning/views/splash_screen.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:green_learning/services/global.dart';
 
 void main() async {
   await Global.init();
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+
+  MainApplicationController mainApplicationController =
+      Get.put(MainApplicationController());
+  AuthController authController = Get.put(AuthController());
 
   @override
   Widget build(BuildContext context) {

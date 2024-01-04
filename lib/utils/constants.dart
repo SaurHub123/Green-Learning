@@ -20,6 +20,7 @@ class Constants {
   // ----------------------------------------------------------------
   // Preferences Key Constants
   //----------------------------------------------------------------
+  static const String loginTimestamp = "LOGIN_TIMESTAMP";
 
   //----------------------------------------------------------------
   // Collection Names Constants
