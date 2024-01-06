@@ -50,6 +50,12 @@ class _SplashScreenState extends State<SplashScreen> {
         );
       }
     }
+    else{
+      Timer(
+        const Duration(seconds: 2),
+            () => Get.offAll(() => const AuthSelectionScreen()),
+      );
+    }
   }
 
   @override

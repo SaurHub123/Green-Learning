@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -33,6 +35,7 @@ class AuthController extends GetxController {
 
       // Calculate the difference in hours
       int hoursDifference = currentTimestamp.difference(dbTimestamp).inHours;
+      print("\n\n\ntrue\n\n\n");
 
       if (hoursDifference > 24) {
         // User access is restricted
@@ -65,6 +68,7 @@ class AuthController extends GetxController {
         verificationCompleted: (PhoneAuthCredential credential) {},
         verificationFailed: (FirebaseAuthException e) {
           // Handle verification failed
+          log(e.toString());
           otpSending.value = false;
         },
         codeSent: (String verificationId, int? resendToken) async {
@@ -75,6 +79,7 @@ class AuthController extends GetxController {
         codeAutoRetrievalTimeout: (String verificationId) {},
       );
     } catch (e) {
+      log(e.toString());
       otpSending.value = false;
       // Handle exceptions
     }
