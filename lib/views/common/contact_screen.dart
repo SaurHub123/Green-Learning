@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:get/get.dart';
 
@@ -24,6 +25,7 @@ class _ContactScreenState extends State<ContactScreen> {
             image: DecorationImage(
               image: AssetImage("assets/images/bc_contact.png"),
               fit: BoxFit.cover,
+
             ),
           ),
           child: SingleChildScrollView(
@@ -48,7 +50,7 @@ class _ContactScreenState extends State<ContactScreen> {
                   children: [
                     Text(
                       "Hello",
-                      style: TextStyle(
+                      style:  GoogleFonts.rajdhani(
                         color: Colors.white,
                         fontSize: 28.sp,
                         fontWeight: FontWeight.w600,
@@ -71,9 +73,9 @@ class _ContactScreenState extends State<ContactScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Row(
-                              children: [Icon(Icons.email_outlined,size: 18.sp,), Text("Email")],
+                              children: [Icon(Icons.email_outlined,size: 18.sp,), Text("Email",style:  GoogleFonts.rajdhani(fontWeight: FontWeight.bold),)],
                             ),
-                            Text("Abc@gmail.com")
+                            Text("Abc@gmail.com",style:  GoogleFonts.rajdhani(fontWeight: FontWeight.w500),)
                           ],
                         ),
                       ),
@@ -81,9 +83,9 @@ class _ContactScreenState extends State<ContactScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Row(
-                            children: [Icon(Icons.phone,size: 18.sp,), Text("Phone")],
+                            children: [Icon(Icons.phone,size: 18.sp,), Text("Phone",style:  GoogleFonts.rajdhani(fontWeight: FontWeight.bold),)],
                           ),
-                          Text("+91 0000000000")
+                          Text("+91 0000000000",style:  GoogleFonts.rajdhani(fontWeight: FontWeight.w500),)
                         ],
                       ),
                     ],

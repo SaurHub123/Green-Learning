@@ -5,7 +5,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:green_learning/services/global.dart';
 import 'package:green_learning/utils/constants.dart';
 import 'package:green_learning/views/auth/auth_selection_screen.dart';
+import 'package:green_learning/views/common/about_us_screen.dart';
+import 'package:green_learning/views/common/account/profile_screen.dart';
 import 'package:green_learning/views/common/contact_screen.dart';
+import 'package:green_learning/views/common/privacy_policy_screen.dart';
 import 'package:green_learning/views/common/upgrade_account_screen.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -47,7 +50,7 @@ class _SplashScreenState extends State<SplashScreen> {
         // User access is allowed, navigate to the DashboardScreen
         Timer(
           const Duration(seconds: 2),
-          () => Get.offAll(() => const ContactScreen()),
+          () => Get.offAll(() => const ProfileScreen()),
         );
       }
     }
