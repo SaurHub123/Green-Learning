@@ -4,7 +4,7 @@ class Constants {
   //----------------------------------------------------------------
   // Color Constants
   //----------------------------------------------------------------
-  static Color primaryColor = const Color(0xffFF5045);
+  static Color primaryColor = const Color(0xff103568);
   static Color secondaryColor = const Color(0xffFF7753);
   static Color tertiaryColor = const Color(0xffFFA05B);
   static Color backgroundColor = const Color(0xffFAFAFA);
