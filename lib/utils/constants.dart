@@ -21,6 +21,7 @@ class Constants {
   // Preferences Key Constants
   //----------------------------------------------------------------
   static const String loginTimestamp = "LOGIN_TIMESTAMP";
+  static const String accessTime = "ACCESS_TIME";
 
   //----------------------------------------------------------------
   // Collection Names Constants
@@ -29,4 +30,7 @@ class Constants {
   //----------------------------------------------------------------
   // Document Key Names Constants
   //----------------------------------------------------------------
+  static const String oneDayAccess = "ONE_DAY_ACCESS";
+  static const String limitedDayAccess = "LIMITED_DAY_ACCESS";
+  static const String unlimitedDayAccess = "UNLIMITED_DAY_ACCESS";
 }

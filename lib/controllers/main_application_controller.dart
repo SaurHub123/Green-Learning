@@ -1,15 +1,17 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:green_learning/views/one_day_access/account/account_screen.dart';
+import 'package:green_learning/views/one_day_access/courses/courses_screen.dart';
+import 'package:green_learning/views/one_day_access/dashboard/dashboard_screen.dart';
+import 'package:green_learning/views/one_day_access/events/events_screen.dart';
 
 class MainApplicationController extends GetxController {
-  bool userOneDayAccess() {
-    return true;
-  }
+  var bottomNavIdx = 0.obs;
 
-  bool userLimitedAccess() {
-    return true;
-  }
-
-  bool userLifetimeAccess() {
-    return true;
-  }
+  List<Widget> bottomPages = [
+    const DashboardScreen(),
+    const CoursesScreen(),
+    const EventsScreen(),
+    const AccountScreen(),
+  ];
 }

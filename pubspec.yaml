@@ -43,6 +43,8 @@ dependencies:
   google_fonts: ^6.1.0
   shared_preferences: ^2.2.2
   lottie: ^2.7.0
+  google_nav_bar: ^5.0.6
+  miladtech_flutter_icons: ^2.0.1
 
 dev_dependencies:
   flutter_test:

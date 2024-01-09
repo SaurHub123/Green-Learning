@@ -46,14 +46,21 @@ class AuthController extends GetxController {
       }
     } else {
       await FirebaseFirestore.instance
-          .collection("one_day_user")
+          .collection("users")
           .doc(oneDayPhoneNumber.text)
           .set({
         "mobile_number": oneDayPhoneNumber.text,
         "timestamp": DateTime.now(),
+        "access_value": Constants.oneDayAccess,
       });
-      Global.storageServices
-          .setString(Constants.loginTimestamp, DateTime.now().toString());
+      Global.storageServices.setString(
+        Constants.loginTimestamp,
+        DateTime.now().toString(),
+      );
+      Global.storageServices.setString(
+        Constants.accessTime,
+        Constants.oneDayAccess,
+      );
 
       Get.offAll(() => const DashboardScreen());
     }
