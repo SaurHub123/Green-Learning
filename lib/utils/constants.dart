@@ -33,4 +33,10 @@ class Constants {
   static const String oneDayAccess = "ONE_DAY_ACCESS";
   static const String limitedDayAccess = "LIMITED_DAY_ACCESS";
   static const String unlimitedDayAccess = "UNLIMITED_DAY_ACCESS";
+//----------------------------------------------------------------
+// Account Key Details
+//----------------------------------------------------------------
+  static const String tProfileHeading = "Kajal Rituraj";
+  // static const String limitedDayAccess = "LIMITED_DAY_ACCESS";
+  // static const String unlimitedDayAccess = "UNLIMITED_DAY_ACCESS";
 }
