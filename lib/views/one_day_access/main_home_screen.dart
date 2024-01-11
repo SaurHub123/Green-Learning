@@ -20,6 +20,7 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Constants.backgroundColor,
       body: Obx(() => _mainApplicationController
           .bottomPages[_mainApplicationController.bottomNavIdx.value]),
       bottomNavigationBar: Container(
