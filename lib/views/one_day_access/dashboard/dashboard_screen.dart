@@ -4,7 +4,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:green_learning/utils/constants.dart';
 import 'package:green_learning/utils/custom_buttons.dart';
 import 'package:miladtech_flutter_icons/miladtech_flutter_icons.dart';
+import 'package:green_learning/views/common/components/custom_cards.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import '../../../utils/constants.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
