@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "217175879702",
-    "project_id": "green-learning-416d6",
-    "storage_bucket": "green-learning-416d6.appspot.com"
+    "project_number": "358517457426",
+    "project_id": "uniford-firebase-c4605",
+    "storage_bucket": "uniford-firebase-c4605.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:217175879702:android:e33fbadd3f02de45530537",
+        "mobilesdk_app_id": "1:358517457426:android:633284614220688a760ecb",
         "android_client_info": {
           "package_name": "com.impossibleshadowstorm.green_learning"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCzQktFOJs6W0tMoQG7DFCsapqiMXgF-J4"
+          "current_key": "AIzaSyAD6YzGz6Oqf5T5vFYT5aRkiHYpFqTP5GM"
         }
       ],
       "services": {

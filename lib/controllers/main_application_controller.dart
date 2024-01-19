@@ -14,4 +14,7 @@ class MainApplicationController extends GetxController {
     const EventsScreen(),
     const AccountScreen(),
   ];
+
+  // Course Screen
+  var selectedFaq = 0.obs;
 }

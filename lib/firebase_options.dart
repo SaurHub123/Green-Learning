@@ -47,29 +47,29 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyABEGwDud67PdI-59ALRjKHkQoAbJ6nC1g',
-    appId: '1:217175879702:web:e1553841d16fce15530537',
-    messagingSenderId: '217175879702',
-    projectId: 'green-learning-416d6',
-    authDomain: 'green-learning-416d6.firebaseapp.com',
-    storageBucket: 'green-learning-416d6.appspot.com',
-    measurementId: 'G-12XLLZLK79',
+    apiKey: 'AIzaSyBFmTqgljIWvFJaR1JCSCko7ZkxqQyNHZE',
+    appId: '1:358517457426:web:16415c7de8e04ceb760ecb',
+    messagingSenderId: '358517457426',
+    projectId: 'uniford-firebase-c4605',
+    authDomain: 'uniford-firebase-c4605.firebaseapp.com',
+    storageBucket: 'uniford-firebase-c4605.appspot.com',
+    measurementId: 'G-WJQQ2Y0SKQ',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCzQktFOJs6W0tMoQG7DFCsapqiMXgF-J4',
-    appId: '1:217175879702:android:e33fbadd3f02de45530537',
-    messagingSenderId: '217175879702',
-    projectId: 'green-learning-416d6',
-    storageBucket: 'green-learning-416d6.appspot.com',
+    apiKey: 'AIzaSyAD6YzGz6Oqf5T5vFYT5aRkiHYpFqTP5GM',
+    appId: '1:358517457426:android:633284614220688a760ecb',
+    messagingSenderId: '358517457426',
+    projectId: 'uniford-firebase-c4605',
+    storageBucket: 'uniford-firebase-c4605.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCGE7_N1Q83tAxzci7OpevfGy1-CCHx7-Y',
-    appId: '1:217175879702:ios:d42141f3f14b68a9530537',
-    messagingSenderId: '217175879702',
-    projectId: 'green-learning-416d6',
-    storageBucket: 'green-learning-416d6.appspot.com',
+    apiKey: 'AIzaSyBxbCXbUpCs9u8qgs4jrwl8133i3Bb-pfo',
+    appId: '1:358517457426:ios:bbf38a46711312cc760ecb',
+    messagingSenderId: '358517457426',
+    projectId: 'uniford-firebase-c4605',
+    storageBucket: 'uniford-firebase-c4605.appspot.com',
     iosBundleId: 'com.impossibleshadowstorm.greenLearning',
   );
 }

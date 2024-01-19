@@ -22,7 +22,7 @@ class AuthController extends GetxController {
 
   Future<void> checkUserExistence() async {
     var db = await FirebaseFirestore.instance
-        .collection("one_day_user")
+        .collection("users")
         .doc(oneDayPhoneNumber.text)
         .get();
 
