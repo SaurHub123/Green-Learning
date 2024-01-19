@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:green_learning/utils/constants.dart';
-import 'package:green_learning/utils/custom_snackbars.dart';
-import 'package:green_learning/views/one_day_access/account/profile_menu.dart';
-import 'package:green_learning/views/one_day_access/account/update_profile_screen.dart';
-import 'package:miladtech_flutter_icons/miladtech_flutter_icons.dart';
+import 'package:green_learning/views/main_screens/account/profile_menu.dart';
+import 'package:green_learning/views/main_screens/account/update_profile_screen.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:get/get.dart';
 

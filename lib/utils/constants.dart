@@ -18,6 +18,13 @@ class Constants {
   static Color color3 = const Color(0xFFf9ea7a);
   static Color color4 = const Color(0xFFfec68e);
 
+  // Aesthetic Pastel Color Palette [https://creativebooster.net/blogs/colors/pastel-color-palettes]
+  static Color aestheticPCPTitanyBlue = const Color(0xFF75DAD7);
+  static Color aestheticPCPJordyBlue = const Color(0xFF9FAFFF);
+  static Color aestheticPCPMauve = const Color(0xFFD8BBFF);
+  static Color aestheticPCPSunset = const Color(0xFFEACFA5);
+  static Color aestheticPCPPinkLavendar = const Color(0xFFFECCFF);
+
   static Color darkNavColor = const Color(0xff1F1F1F);
   static Color lightBorderColor = const Color(0xff3C3C3C);
   static Color yellowColor = const Color(0xffF7A900);

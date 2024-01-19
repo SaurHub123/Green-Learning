@@ -6,7 +6,7 @@ import 'package:green_learning/services/global.dart';
 import 'package:green_learning/utils/constants.dart';
 import 'package:green_learning/views/auth/auth_selection_screen.dart';
 import 'package:green_learning/views/common/upgrade_account_screen.dart';
-import 'package:green_learning/views/one_day_access/main_home_screen.dart';
+import 'package:green_learning/views/main_screens/main_home_screen.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class SplashScreen extends StatefulWidget {

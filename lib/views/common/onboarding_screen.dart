@@ -2,7 +2,7 @@ import 'package:concentric_transition/concentric_transition.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:green_learning/views/one_day_access/dashboard/dashboard_screen.dart';
+import 'package:green_learning/views/main_screens/dashboard/dashboard_screen.dart';
 
 final pages = [
   const PageData(

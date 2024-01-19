@@ -7,7 +7,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:green_learning/services/global.dart';
 import 'package:green_learning/utils/constants.dart';
 import 'package:green_learning/views/common/upgrade_account_screen.dart';
-import 'package:green_learning/views/one_day_access/dashboard/dashboard_screen.dart';
+import 'package:green_learning/views/main_screens/dashboard/dashboard_screen.dart';
 
 class AuthController extends GetxController {
   var otpSent = false.obs;

@@ -52,7 +52,6 @@ class CustomCards {
     return Expanded(
       child: Container(
         height: 10.h,
-        width: 50.w,
         decoration: BoxDecoration(
           color: bgColor,
           borderRadius: BorderRadius.only(
@@ -62,6 +61,7 @@ class CustomCards {
             bottomRight: Radius.circular(leftCurved ? 0 : 15.sp),
           ),
         ),
+        padding: EdgeInsets.symmetric(horizontal: 2.5.w),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -79,7 +79,7 @@ class CustomCards {
               ),
             ),
             SizedBox(
-              width: 1.h,
+              width: 3.w,
             ),
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -100,6 +100,57 @@ class CustomCards {
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  static Widget simpleIconTextCard(
+    double height,
+    Color bgColor,
+    String title,
+    IconData iconData,
+  ) {
+    return Container(
+      height: height,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(5.w),
+        color: bgColor,
+      ),
+      padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 3.5.w),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            height: 40,
+            width: 40,
+            padding: EdgeInsets.all(1.5.w),
+            decoration: const BoxDecoration(
+              shape: BoxShape.circle,
+              color: Colors.white,
+            ),
+            child: Center(
+              child: Icon(
+                iconData,
+                color: Colors.black,
+                size: 18.sp,
+              ),
+            ),
+          ),
+          SizedBox(height: 2.5.w),
+          Container(
+            child: Text(
+              title,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              style: GoogleFonts.inter(
+                color: Colors.black,
+                fontWeight: FontWeight.w400,
+                fontSize: 15.sp,
+              ),
+            ),
+          )
+        ],
       ),
     );
   }
