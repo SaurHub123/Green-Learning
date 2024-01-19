@@ -160,9 +160,12 @@ class CustomCards {
       // height: 250,
       width: 70.w,
       decoration: BoxDecoration(
-          color: const Color(0xfff6f8fa),
-          borderRadius: BorderRadius.circular(1.w),
-          border: Border.all(color: const Color(0xffDADCE0),),),
+        color: const Color(0xfff6f8fa),
+        borderRadius: BorderRadius.circular(1.w),
+        border: Border.all(
+          color: const Color(0xffDADCE0),
+        ),
+      ),
       child: Column(
         children: [
           Container(
@@ -170,7 +173,7 @@ class CustomCards {
             child: Row(
               children: [
                 SizedBox(
-                  height:15.h,
+                  height: 15.h,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -188,7 +191,7 @@ class CustomCards {
                               'Netflix',
                               style: GoogleFonts.rajdhani(
                                 fontWeight: FontWeight.bold,
-                                color:  Colors.white,
+                                color: Colors.white,
                                 fontSize: 16.sp,
                               ),
                             ),
@@ -221,9 +224,7 @@ class CustomCards {
               ],
             ),
           ),
-          const Divider(
-            color: Color(0xffDADCE0),
-          ),
+          const Divider(color: Color(0xffDADCE0)),
           Container(
             padding: EdgeInsets.symmetric(horizontal: 3.5.w, vertical: 2.w),
             child: Column(
@@ -245,9 +246,7 @@ class CustomCards {
                     ),
                   ],
                 ),
-                SizedBox(
-                  height: 1.h
-                ),
+                SizedBox(height: 1.h),
                 Text(
                   "American Express Data Analysis ",
                   style: GoogleFonts.rajdhani(
@@ -264,9 +263,7 @@ class CustomCards {
                     fontSize: 15.sp,
                   ),
                 ),
-                SizedBox(
-                  height: 1.h
-                ),
+                SizedBox(height: 1.h),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
