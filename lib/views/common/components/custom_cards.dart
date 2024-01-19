@@ -154,4 +154,139 @@ class CustomCards {
       ),
     );
   }
+
+  static Widget singleTrackCard() {
+    return Container(
+      // height: 250,
+      width: 70.w,
+      decoration: BoxDecoration(
+          color: const Color(0xfff6f8fa),
+          borderRadius: BorderRadius.circular(1.w),
+          border: Border.all(color: const Color(0xffDADCE0),),),
+      child: Column(
+        children: [
+          Container(
+            padding: EdgeInsets.only(left: 3.w, top: 2.5.w),
+            child: Row(
+              children: [
+                SizedBox(
+                  height:15.h,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Container(
+                            padding: EdgeInsets.all(10.sp),
+                            decoration: BoxDecoration(
+                              color: const Color(0xffA391FF),
+                              borderRadius: BorderRadius.circular(1.w),
+                            ),
+                            child: Text(
+                              'Netflix',
+                              style: GoogleFonts.rajdhani(
+                                fontWeight: FontWeight.bold,
+                                color:  Colors.white,
+                                fontSize: 16.sp,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                      SizedBox(height: 2.5.w),
+                      Text(
+                        "Movie",
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: GoogleFonts.rajdhani(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                          fontSize: 18.sp,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  width: 1.w,
+                ),
+                Expanded(
+                  child: Image.asset(
+                    'assets/images/test1.png',
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const Divider(
+            color: Color(0xffDADCE0),
+          ),
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 3.5.w, vertical: 2.w),
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Icon(
+                      Icons.play_lesson,
+                      color: const Color(0xff747474),
+                      size: 16.sp,
+                    ),
+                    Text(
+                      " 3x Lessons ",
+                      style: GoogleFonts.rajdhani(
+                        fontWeight: FontWeight.w500,
+                        color: const Color(0xff747474),
+                        fontSize: 16.sp,
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 1.h
+                ),
+                Text(
+                  "American Express Data Analysis ",
+                  style: GoogleFonts.rajdhani(
+                    fontWeight: FontWeight.bold,
+                    color: const Color(0xff383838),
+                    fontSize: 17.sp,
+                  ),
+                ),
+                Text(
+                  "The American Express Data Analysis course o ",
+                  style: GoogleFonts.rajdhani(
+                    fontWeight: FontWeight.w500,
+                    color: const Color(0xff747474),
+                    fontSize: 15.sp,
+                  ),
+                ),
+                SizedBox(
+                  height: 1.h
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const Text("View Course"),
+                    Icon(
+                      Icons.arrow_forward_ios,
+                      color: const Color(0xff747474),
+                      size: 16.sp,
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 1.h,
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }

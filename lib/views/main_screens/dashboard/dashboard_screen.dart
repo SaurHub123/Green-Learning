@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:green_learning/utils/constants.dart';
 import 'package:green_learning/utils/custom_buttons.dart';
+import 'package:green_learning/views/common/components/custom_cards.dart';
 import 'package:miladtech_flutter_icons/miladtech_flutter_icons.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -89,6 +90,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     ),
                   ),
                   child: SingleChildScrollView(
+                    physics: BouncingScrollPhysics(),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -171,7 +173,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                   banners[index]["icon"] as IconData,
                                 );
                               }),
-                        )
+                        ),
+                      //   card
+                        SizedBox(height: 5.h,),
+                        CustomCards.singleTrackCard(),
                       ],
                     ),
                   ),
