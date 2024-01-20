@@ -25,98 +25,60 @@ class _AccountScreenState extends State<AccountScreen> {
             padding: EdgeInsets.all(5.w),
             child: Column(
               children: [
-                AccountComponents.progressTile(50),
-                AccountComponents.profileTile(),
-
-                const SizedBox(height: 10),
-                Text(
-                  "Kajal Rituraj",
-                  style: GoogleFonts.rajdhani(
-                    fontSize: 18.sp,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-                Text(
-                  "kajalrituraj2002@gmail.com",
-                ),
-                const SizedBox(height: 20),
+                SizedBox(height: 2.h,),
                 SizedBox(
-                  width: 200,
-                  child: ElevatedButton(
-                    onPressed: () => Get.to(() => const UpdateProfileScreen()),
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: Constants.primaryColor,
-                        side: BorderSide.none,
-                        shape: const StadiumBorder()),
-                    child: const Text(
-                      "Edit Profile",
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
+                  width:90.w, // Example width constraint
+                  child: Text(
+                    "Complete your Profile",
+                    style: GoogleFonts.rajdhani(
+                      fontSize: 15.sp,
+                      fontWeight: FontWeight.w500,
                     ),
+                    textAlign: TextAlign.start,
                   ),
                 ),
-                const SizedBox(height: 30),
-                const Divider(),
-                const SizedBox(height: 10),
-                // ProfileMenuWidget(
-                //   title: "Settings",
-                //   icon: Icons.settings,
-                //   onPress: () {},
-                // ),
-                // ProfileMenuWidget(
-                //   title: "Billing Details",
-                //   icon: Icons.wallet,
-                //   onPress: () {},
-                // ),
-                // ProfileMenuWidget(
-                //   title: "User Management",
-                //   icon: Icons.verified_user,
-                //   onPress: () {},
-                // ),
-                const Divider(),
-                const SizedBox(height: 10),
-                // ProfileMenuWidget(
-                //   title: "Information",
-                //   icon: Icons.info,
-                //   onPress: () {},
-                // ),
-                // ProfileMenuWidget(
-                //   title: "Logout",
-                //   icon: Icons.logout,
-                //   textColor: Colors.red,
-                //   endIcon: false,
-                //   onPress: () {
-                //     Get.defaultDialog(
-                //       title: "LOGOUT",
-                //       titleStyle: const TextStyle(fontSize: 20),
-                //       content: const Padding(
-                //         padding: EdgeInsets.symmetric(vertical: 15.0),
-                //         child: Text(
-                //           "Are you sure, you want to Logout?",
-                //         ),
-                //       ),
-                //       confirm: Expanded(
-                //         child: ElevatedButton(
-                //           // onPressed: () => AuthenticationRepository.instance.logout(),
-                //           style: ElevatedButton.styleFrom(
-                //               backgroundColor: const Color(0xffB5D9FF),
-                //               side: BorderSide.none),
-                //           onPressed: () {},
-                //           child: const Text(
-                //             "Yes",
-                //           ),
-                //         ),
-                //       ),
-                //       cancel: OutlinedButton(
-                //         onPressed: () => Get.back(),
-                //         child: const Text(
-                //           "No",
-                //         ),
-                //       ),
-                //     );
-                //   },
-                // ),
+                SizedBox(height: 1.5.h,),
+                AccountComponents.progressTile(0.39),
+                SizedBox(height: 1.h,),
+                Divider(),
+                SizedBox(height: 2.h,),
+                AccountComponents.profileTile("assets/images/avt1.png","Kajal Rituraj", "kajalrituraj2002@gmail.com",),
+                SizedBox(height: 2.h,),
+                AccountComponents.completeProfileBtn("Complete Profile"),
+            SizedBox(height: 2.h,),
+
+            Container(
+              alignment: Alignment.centerLeft,
+              padding: EdgeInsets.all(2.w),
+              width: 100.w,
+              height: 4.h,
+              color: Color(0xfff2f8fe),
+              child: Text(
+                "For Users",
+                style: GoogleFonts.rajdhani(
+                    fontSize: 16.sp,
+                    color: Colors.black87,
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
+                SizedBox(height: 2.h,),
+                AccountComponents.menuList(Icons.person,  "Registrations/Applications "),
+                AccountComponents.menuList(Icons.heart_broken,  " Watchlist"),
+                AccountComponents.menuList(Icons.panorama,  "Certificates"),
+                AccountComponents.menuList(Icons.money,  "Coupans and Rewards"),
+                AccountComponents.menuList(Icons.settings,  "Settings"),
+                Divider(),
+                SizedBox(height: 2.h,),
+                AccountComponents.logoutBtn("Logout",Icons.logout),
+                SizedBox(height: 2.h,),
+                AccountComponents.addBtn("Projects","Craft an engaging story in your bio "
+                    "and make meaningful connections with peers and recruiters alike!",'assets/images/addimg.png'),
+                SizedBox(height: 2.h,),
+                AccountComponents.addBtn(
+                    "Skills",
+                    "Craft an engaging story in your bio "
+                        "and make meaningful connections with peers and recruiters alike!",
+                    'assets/images/addimg.png'),
               ],
             ),
           ),
