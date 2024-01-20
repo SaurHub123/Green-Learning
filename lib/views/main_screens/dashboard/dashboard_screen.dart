@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:green_learning/utils/constants.dart';
 import 'package:green_learning/utils/custom_buttons.dart';
@@ -158,18 +159,30 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         ),
                         SizedBox(height: 2.5.h),
                         SizedBox(
-                          height: 160,
+                          height: banners.length * (160 + 2.5.w),
                           width: 100.w,
                           child: ListView.builder(
-                              scrollDirection: Axis.horizontal,
+                              scrollDirection: Axis.vertical,
                               itemCount: banners.length,
+                              padding: EdgeInsets.zero,
+                              physics: const NeverScrollableScrollPhysics(),
                               itemBuilder: (context, index) {
-                                return enhancementBanner(
-                                  banners[index]["tag"]! as String?,
-                                  banners[index]["title"]! as String?,
-                                  banners[index]["image"]! as String?,
-                                  banners[index]["bgColor"] as Color,
-                                  banners[index]["icon"] as IconData,
+                                return Column(
+                                  children: [
+                                    InkWell(
+                                      onTap: () {
+                                        // Get.to(() => );
+                                      },
+                                      child: enhancementBanner(
+                                        banners[index]["tag"]! as String?,
+                                        banners[index]["title"]! as String?,
+                                        banners[index]["image"]! as String?,
+                                        banners[index]["bgColor"] as Color,
+                                        banners[index]["icon"] as IconData,
+                                      ),
+                                    ),
+                                    SizedBox(height: 2.5.w),
+                                  ],
                                 );
                               }),
                         ),
@@ -193,71 +206,66 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   Widget enhancementBanner(String? tag, String? title, String? image,
       Color bgColor, IconData? iconData) {
-    return Row(
-      children: [
-        Container(
-          height: 160,
-          width: 80.w,
-          padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 2.5.w),
-          decoration: BoxDecoration(
-            color: bgColor,
-            borderRadius: BorderRadius.circular(5.w),
+    return Container(
+      height: 160,
+      width: double.infinity,
+      padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 2.5.w),
+      decoration: BoxDecoration(
+        color: bgColor,
+        borderRadius: BorderRadius.circular(5.w),
+      ),
+      child: Row(
+        children: [
+          SizedBox(
+            height: 140,
+            width: 120,
+            child: SvgPicture.asset(
+              image!,
+            ),
           ),
-          child: Row(
-            children: [
-              SizedBox(
-                height: 140,
-                width: 120,
-                child: SvgPicture.asset(
-                  image!,
-                ),
-              ),
-              SizedBox(width: 2.5.w),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
+          SizedBox(width: 2.5.w),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          tag!,
-                          style: GoogleFonts.rajdhani(
-                            fontWeight: FontWeight.bold,
-                            color: const Color(0xffE54AD3),
-                            fontSize: 16.sp,
-                          ),
-                        ),
-                        SizedBox(width: 2.5.w),
-                        iconData != null
-                            ? Icon(
-                                iconData,
-                                size: 19.sp,
-                                color: const Color(0xffE54AD3),
-                              )
-                            : const SizedBox(),
-                      ],
-                    ),
-                    SizedBox(height: 2.5.w),
                     Text(
-                      title!,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
+                      tag!,
                       style: GoogleFonts.rajdhani(
                         fontWeight: FontWeight.bold,
-                        color: Colors.black,
-                        fontSize: 18.sp,
+                        color: const Color(0xffE54AD3),
+                        fontSize: 16.sp,
                       ),
                     ),
+                    SizedBox(width: 2.5.w),
+                    iconData != null
+                        ? Icon(
+                            iconData,
+                            size: 19.sp,
+                            color: const Color(0xffE54AD3),
+                          )
+                        : const SizedBox(),
                   ],
                 ),
-              ),
-            ],
+                SizedBox(height: 2.5.w),
+                Text(
+                  title!,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: GoogleFonts.rajdhani(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                    fontSize: 18.sp,
+                  ),
+                ),
+              ],
+            ),
           ),
-        ),
-        SizedBox(width: 4.w.sp),
-      ],
+        ],
+      ),
     );
   }
 }
