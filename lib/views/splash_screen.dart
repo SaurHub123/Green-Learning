@@ -27,32 +27,26 @@ class _SplashScreenState extends State<SplashScreen> {
     String? cacheStringTimestamp =
         Global.storageServices.getString(Constants.loginTimestamp);
     if (cacheStringTimestamp != null) {
-      DateTime currentTimestamp = DateTime.now();
-      DateTime cacheTimestamp = DateTime.parse(cacheStringTimestamp);
-      int hoursDifference = currentTimestamp.difference(cacheTimestamp).inHours;
-
-      String? accessTime =
-          Global.storageServices.getString(Constants.accessTime);
-
-      if (accessTime == Constants.limitedDayAccess && hoursDifference > 360) {
-        // Upgrade account to unlimited access
-        Timer(
-          const Duration(seconds: 2),
-          () => Get.offAll(() => const UpgradeAccountScreen()),
-        );
-      } else if (accessTime == Constants.oneDayAccess && hoursDifference > 24) {
-        // Upgrade account to limited access
-        Timer(
-          const Duration(seconds: 2),
-          () => Get.offAll(() => const UpgradeAccountScreen()),
-        );
-      } else {
-        // User access is allowed, navigate to the DashboardScreen
-        Timer(
-          const Duration(seconds: 2),
-          () => Get.offAll(() => const MainHomeScreen()),
-        );
-      }
+      // DateTime currentTimestamp = DateTime.now();
+      // DateTime cacheTimestamp = DateTime.parse(cacheStringTimestamp);
+      // int hoursDifference = currentTimestamp.difference(cacheTimestamp).inHours;
+      //
+      // String? accessTime =
+      //     Global.storageServices.getString(Constants.accessTime);
+      //
+      // if (accessTime == Constants.limitedDayAccess && hoursDifference > 360) {
+      // Upgrade account to unlimited access
+      //   Timer(
+      //     const Duration(seconds: 2),
+      //     () => Get.offAll(() => const UpgradeAccountScreen()),
+      //   );
+      // } else {
+      // User access is allowed, navigate to the DashboardScreen
+      Timer(
+        const Duration(seconds: 2),
+        () => Get.offAll(() => const MainHomeScreen()),
+      );
+      // }
     } else {
       Timer(
         const Duration(seconds: 2),

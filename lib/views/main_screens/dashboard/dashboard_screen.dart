@@ -19,22 +19,21 @@ class _DashboardScreenState extends State<DashboardScreen> {
     {
       "tag": "New",
       "icon": Foundation.burst_new,
-      "title": "Data Scientist",
+      "title": "Computer Science",
       "image": "assets/svgs/data-scientists.svg",
       "bgColor": const Color(0xFFEDDEF6),
     },
     {
       "tag": "Trending",
       "icon": Icons.trending_up_outlined,
-      "title": "Android Development",
+      "title": "9th - 12th Study Material",
       "image": "assets/svgs/android-developer.svg",
       "bgColor": const Color(0xFFFFC8C4),
     },
     {
       "tag": "New",
       "icon": Foundation.burst_new,
-      "icon": Icons.trending_up_outlined,
-      "title": "Web Development",
+      "title": "Competitive Exams",
       "image": "assets/svgs/web-developer.svg",
       "bgColor": const Color(0xFFB5E8A4),
     }
@@ -90,7 +89,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     ),
                   ),
                   child: SingleChildScrollView(
-                    physics: BouncingScrollPhysics(),
+                    physics: const BouncingScrollPhysics(),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -150,7 +149,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         ),
                         SizedBox(height: 5.h),
                         Text(
-                          "Recommended Tracks",
+                          "Career Goals",
                           style: GoogleFonts.rajdhani(
                             fontSize: 18.sp,
                             fontWeight: FontWeight.bold,
@@ -174,8 +173,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                 );
                               }),
                         ),
-                      //   card
-                        SizedBox(height: 5.h,),
+                        //   card
+                        SizedBox(height: 5.h),
+                        CustomCards.singleTrackCard(),
+                        CustomCards.singleTrackCard(),
+                        CustomCards.singleTrackCard(),
                         CustomCards.singleTrackCard(),
                       ],
                     ),

@@ -8,6 +8,7 @@ import 'package:green_learning/services/global.dart';
 import 'package:green_learning/utils/constants.dart';
 import 'package:green_learning/views/common/upgrade_account_screen.dart';
 import 'package:green_learning/views/main_screens/dashboard/dashboard_screen.dart';
+import 'package:green_learning/views/main_screens/main_home_screen.dart';
 
 class AuthController extends GetxController {
   var otpSent = false.obs;
@@ -35,14 +36,13 @@ class AuthController extends GetxController {
 
       // Calculate the difference in hours
       int hoursDifference = currentTimestamp.difference(dbTimestamp).inHours;
-      print("\n\n\ntrue\n\n\n");
 
       if (hoursDifference > 24) {
         // User access is restricted
         Get.offAll(() => const UpgradeAccountScreen());
       } else {
         // User access is allowed, navigate to the DashboardScreen
-        Get.offAll(() => const DashboardScreen());
+        Get.offAll(() => const MainHomeScreen());
       }
     } else {
       await FirebaseFirestore.instance
@@ -51,16 +51,15 @@ class AuthController extends GetxController {
           .set({
         "mobile_number": oneDayPhoneNumber.text,
         "timestamp": DateTime.now(),
-        "access_value": Constants.oneDayAccess,
       });
       Global.storageServices.setString(
         Constants.loginTimestamp,
         DateTime.now().toString(),
       );
-      Global.storageServices.setString(
-        Constants.accessTime,
-        Constants.oneDayAccess,
-      );
+      // Global.storageServices.setString(
+      //   Constants.accessTime,
+      //   Constants.limitedDayAccess,
+      // );
 
       Get.offAll(() => const DashboardScreen());
     }

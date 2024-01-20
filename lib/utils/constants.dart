@@ -47,7 +47,6 @@ class Constants {
   //----------------------------------------------------------------
   // Document Key Names Constants
   //----------------------------------------------------------------
-  static const String oneDayAccess = "ONE_DAY_ACCESS";
   static const String limitedDayAccess = "LIMITED_DAY_ACCESS";
   static const String unlimitedDayAccess = "UNLIMITED_DAY_ACCESS";
 //----------------------------------------------------------------

@@ -10,7 +10,7 @@ class Global {
     WidgetsFlutterBinding.ensureInitialized();
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
-      name: "uniford-firebase-c4605",
+      // name: "uniford-firebase-c4605",
     );
     storageServices = await StorageServices().init();
   }
