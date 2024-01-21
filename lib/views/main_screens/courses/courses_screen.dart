@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:green_learning/controllers/main_application_controller.dart';
+import 'package:green_learning/utils/constants.dart';
 import 'package:green_learning/views/common/components/faq_component.dart';
+import 'package:green_learning/views/main_screens/courses/all_career_goal_screen.dart';
 import 'package:green_learning/views/main_screens/courses/courses_components.dart';
+import 'package:miladtech_flutter_icons/miladtech_flutter_icons.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class CoursesScreen extends StatefulWidget {
@@ -36,6 +40,32 @@ class _CoursesScreenState extends State<CoursesScreen> {
           "Please write to support@unstop.com with any further questions.",
     },
   ];
+  var banners = [
+    {
+      "tag": "New",
+      "icon": Foundation.burst_new,
+      "title": "Computer Science",
+      "image": "assets/svgs/data-scientists.svg",
+      "bgColor": const Color(0xFFEDDEF6),
+      "key": Constants.computerScience,
+    },
+    {
+      "tag": "Trending",
+      "icon": Icons.trending_up_outlined,
+      "title": "9th - 12th Study Material",
+      "image": "assets/svgs/android-developer.svg",
+      "bgColor": const Color(0xFFFFC8C4),
+      "key": Constants.nineTh12ThMaterial,
+    },
+    {
+      "tag": "New",
+      "icon": Foundation.burst_new,
+      "title": "Competitive Exams",
+      "image": "assets/svgs/web-developer.svg",
+      "bgColor": const Color(0xFFB5E8A4),
+      "key": Constants.competitiveExams,
+    }
+  ];
   final MainApplicationController _mainApplicationController = Get.find();
 
   @override
@@ -52,20 +82,58 @@ class _CoursesScreenState extends State<CoursesScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 5.h),
-                Padding(
+                Container(
+                  width: 100.w,
                   padding: EdgeInsets.symmetric(horizontal: 5.w),
-                  child: Text(
-                    "Learn more",
-                    style: GoogleFonts.rajdhani(
-                      fontSize: 20.sp,
-                      fontWeight: FontWeight.bold,
-                      color: const Color(0xFF006767),
-                    ),
+                  child: Column(
+                    children: [
+                      SizedBox(height: 1.h),
+                      Text(
+                        "Career Goals",
+                        style: GoogleFonts.rajdhani(
+                          fontSize: 18.sp,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        ),
+                      ),
+                      SizedBox(height: 1.h),
+                      SizedBox(
+                        height: banners.length * (160 + 2.5.w),
+                        width: 100.w,
+                        child: ListView.builder(
+                            scrollDirection: Axis.vertical,
+                            itemCount: banners.length,
+                            padding: EdgeInsets.zero,
+                            physics: const NeverScrollableScrollPhysics(),
+                            itemBuilder: (context, index) {
+                              return Column(
+                                children: [
+                                  InkWell(
+                                    onTap: () {
+                                      Get.to(
+                                        () => AllCareerGoalScreen(
+                                          careerKey:
+                                              banners[index]["key"]! as String,
+                                        ),
+                                      );
+                                    },
+                                    child: enhancementBanner(
+                                      banners[index]["tag"]! as String?,
+                                      banners[index]["title"]! as String?,
+                                      banners[index]["image"]! as String?,
+                                      banners[index]["bgColor"] as Color,
+                                      banners[index]["icon"] as IconData,
+                                    ),
+                                  ),
+                                  SizedBox(height: 2.5.w),
+                                ],
+                              );
+                            }),
+                      ),
+                      SizedBox(height: 5.h),
+                    ],
                   ),
                 ),
-                SizedBox(height: 2.5.h),
-                CoursesComponents.learnMoreComponents(),
                 CoursesComponents.imageBannerComponents(),
                 SizedBox(height: 5.h),
                 Padding(
@@ -95,6 +163,71 @@ class _CoursesScreenState extends State<CoursesScreen> {
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  Widget enhancementBanner(String? tag, String? title, String? image,
+      Color bgColor, IconData? iconData) {
+    return Container(
+      height: 160,
+      width: double.infinity,
+      padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 2.5.w),
+      decoration: BoxDecoration(
+        color: bgColor,
+        borderRadius: BorderRadius.circular(5.w),
+      ),
+      child: Row(
+        children: [
+          SizedBox(
+            height: 140,
+            width: 120,
+            child: SvgPicture.asset(
+              image!,
+            ),
+          ),
+          SizedBox(width: 2.5.w),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      tag!,
+                      style: GoogleFonts.rajdhani(
+                        fontWeight: FontWeight.bold,
+                        color: const Color(0xffE54AD3),
+                        fontSize: 16.sp,
+                      ),
+                    ),
+                    SizedBox(width: 2.5.w),
+                    iconData != null
+                        ? Icon(
+                            iconData,
+                            size: 19.sp,
+                            color: const Color(0xffE54AD3),
+                          )
+                        : const SizedBox(),
+                  ],
+                ),
+                SizedBox(height: 2.5.w),
+                Text(
+                  title!,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: GoogleFonts.rajdhani(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                    fontSize: 18.sp,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

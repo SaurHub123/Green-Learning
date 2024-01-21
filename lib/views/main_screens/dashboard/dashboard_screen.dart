@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:green_learning/utils/constants.dart';
 import 'package:green_learning/utils/custom_buttons.dart';
 import 'package:green_learning/views/common/components/custom_cards.dart';
+import 'package:green_learning/views/main_screens/courses/courses_components.dart';
 import 'package:miladtech_flutter_icons/miladtech_flutter_icons.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -16,30 +17,6 @@ class DashboardScreen extends StatefulWidget {
 }
 
 class _DashboardScreenState extends State<DashboardScreen> {
-  var banners = [
-    {
-      "tag": "New",
-      "icon": Foundation.burst_new,
-      "title": "Computer Science",
-      "image": "assets/svgs/data-scientists.svg",
-      "bgColor": const Color(0xFFEDDEF6),
-    },
-    {
-      "tag": "Trending",
-      "icon": Icons.trending_up_outlined,
-      "title": "9th - 12th Study Material",
-      "image": "assets/svgs/android-developer.svg",
-      "bgColor": const Color(0xFFFFC8C4),
-    },
-    {
-      "tag": "New",
-      "icon": Foundation.burst_new,
-      "title": "Competitive Exams",
-      "image": "assets/svgs/web-developer.svg",
-      "bgColor": const Color(0xFFB5E8A4),
-    }
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -148,50 +125,21 @@ class _DashboardScreenState extends State<DashboardScreen> {
                             ),
                           ],
                         ),
-                        SizedBox(height: 5.h),
+                        SizedBox(height: 4.h),
                         Text(
-                          "Career Goals",
+                          "Learn more",
                           style: GoogleFonts.rajdhani(
                             fontSize: 18.sp,
                             fontWeight: FontWeight.bold,
                             color: Colors.black,
                           ),
                         ),
-                        SizedBox(height: 2.5.h),
-                        SizedBox(
-                          height: banners.length * (160 + 2.5.w),
-                          width: 100.w,
-                          child: ListView.builder(
-                              scrollDirection: Axis.vertical,
-                              itemCount: banners.length,
-                              padding: EdgeInsets.zero,
-                              physics: const NeverScrollableScrollPhysics(),
-                              itemBuilder: (context, index) {
-                                return Column(
-                                  children: [
-                                    InkWell(
-                                      onTap: () {
-                                        // Get.to(() => );
-                                      },
-                                      child: enhancementBanner(
-                                        banners[index]["tag"]! as String?,
-                                        banners[index]["title"]! as String?,
-                                        banners[index]["image"]! as String?,
-                                        banners[index]["bgColor"] as Color,
-                                        banners[index]["icon"] as IconData,
-                                      ),
-                                    ),
-                                    SizedBox(height: 2.5.w),
-                                  ],
-                                );
-                              }),
-                        ),
-                        //   card
-                        SizedBox(height: 5.h),
-                        CustomCards.singleTrackCard(),
-                        CustomCards.singleTrackCard(),
-                        CustomCards.singleTrackCard(),
-                        CustomCards.singleTrackCard(),
+                        SizedBox(height: 1.h),
+                        CoursesComponents.learnMoreComponents(),
+                        // CustomCards.singleTrackCard(),
+                        // CustomCards.singleTrackCard(),
+                        // CustomCards.singleTrackCard(),
+                        // CustomCards.singleTrackCard(),
                       ],
                     ),
                   ),
@@ -200,71 +148,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
             ],
           ),
         ),
-      ),
-    );
-  }
-
-  Widget enhancementBanner(String? tag, String? title, String? image,
-      Color bgColor, IconData? iconData) {
-    return Container(
-      height: 160,
-      width: double.infinity,
-      padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 2.5.w),
-      decoration: BoxDecoration(
-        color: bgColor,
-        borderRadius: BorderRadius.circular(5.w),
-      ),
-      child: Row(
-        children: [
-          SizedBox(
-            height: 140,
-            width: 120,
-            child: SvgPicture.asset(
-              image!,
-            ),
-          ),
-          SizedBox(width: 2.5.w),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      tag!,
-                      style: GoogleFonts.rajdhani(
-                        fontWeight: FontWeight.bold,
-                        color: const Color(0xffE54AD3),
-                        fontSize: 16.sp,
-                      ),
-                    ),
-                    SizedBox(width: 2.5.w),
-                    iconData != null
-                        ? Icon(
-                            iconData,
-                            size: 19.sp,
-                            color: const Color(0xffE54AD3),
-                          )
-                        : const SizedBox(),
-                  ],
-                ),
-                SizedBox(height: 2.5.w),
-                Text(
-                  title!,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: GoogleFonts.rajdhani(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                    fontSize: 18.sp,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
       ),
     );
   }

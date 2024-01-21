@@ -25,8 +25,12 @@ class Constants {
   static Color aestheticPCPSunset = const Color(0xFFEACFA5);
   static Color aestheticPCPPinkLavendar = const Color(0xFFFECCFF);
 
+  // Account Screen
+  static Color accountLightGreen = const Color(0xff08A045).withOpacity(0.1);
+  static Color accountDarkGreen = const Color(0xFF073B3A);
+
   static Color darkNavColor = const Color(0xff1F1F1F);
-  static Color lightBorderColor = const Color(0xff3C3C3C);
+  static Color lightBorderColor = const Color(0xff3C3C3C).withOpacity(0.1);
   static Color yellowColor = const Color(0xffF7A900);
   static Color greyTextColor = const Color(0xffC4C4C4);
 
@@ -43,6 +47,9 @@ class Constants {
   //----------------------------------------------------------------
   // Collection Names Constants
   //----------------------------------------------------------------
+  static const String computerScience = "ComputerScience";
+  static const String nineTh12ThMaterial = "9th12thMaterial";
+  static const String competitiveExams = "CompetitiveExams";
 
   //----------------------------------------------------------------
   // Document Key Names Constants

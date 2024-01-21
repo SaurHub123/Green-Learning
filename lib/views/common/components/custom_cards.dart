@@ -155,52 +155,48 @@ class CustomCards {
     );
   }
 
-  static Widget singleTrackCard() {
+  static Widget singleTrackCard(
+      String title, String description, String estimatedTime) {
     return Container(
-      // height: 250,
-      width: 70.w,
+      // width: 70.w,
+      padding: EdgeInsets.symmetric(horizontal: 3.w),
       decoration: BoxDecoration(
-        color: const Color(0xfff6f8fa),
+        color: const Color(0xFFF6f8FA),
         borderRadius: BorderRadius.circular(1.w),
         border: Border.all(
-          color: const Color(0xffDADCE0),
+          color: const Color(0xFFDADCE0),
         ),
       ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            padding: EdgeInsets.only(left: 3.w, top: 2.5.w),
+            padding: EdgeInsets.only(left: 1.w, top: 2.5.w),
             child: Row(
               children: [
                 SizedBox(
-                  height: 15.h,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            padding: EdgeInsets.all(10.sp),
-                            decoration: BoxDecoration(
-                              color: const Color(0xffA391FF),
-                              borderRadius: BorderRadius.circular(1.w),
-                            ),
-                            child: Text(
-                              'Netflix',
-                              style: GoogleFonts.rajdhani(
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                                fontSize: 16.sp,
-                              ),
-                            ),
-                          )
-                        ],
+                      Container(
+                        padding: EdgeInsets.symmetric(horizontal: 2.5.w),
+                        decoration: BoxDecoration(
+                          color: const Color(0xffA391FF),
+                          borderRadius: BorderRadius.circular(1.w),
+                        ),
+                        child: Text(
+                          'Netflix',
+                          style: GoogleFonts.rajdhani(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                            fontSize: 16.sp,
+                          ),
+                        ),
                       ),
-                      SizedBox(height: 2.5.w),
+                      SizedBox(height: 2.w),
                       Text(
-                        "Movie",
+                        "Track",
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: GoogleFonts.rajdhani(
@@ -212,9 +208,7 @@ class CustomCards {
                     ],
                   ),
                 ),
-                SizedBox(
-                  width: 1.w,
-                ),
+                SizedBox(width: 1.w),
                 Expanded(
                   child: Image.asset(
                     'assets/images/test1.png',
@@ -226,8 +220,9 @@ class CustomCards {
           ),
           const Divider(color: Color(0xffDADCE0)),
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 3.5.w, vertical: 2.w),
+            padding: EdgeInsets.symmetric(horizontal: 2.5.w, vertical: 2.w),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
                   children: [
@@ -236,8 +231,11 @@ class CustomCards {
                       color: const Color(0xff747474),
                       size: 16.sp,
                     ),
+                    SizedBox(width: 2.5.w),
                     Text(
-                      " 3x Lessons ",
+                      estimatedTime,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                       style: GoogleFonts.rajdhani(
                         fontWeight: FontWeight.w500,
                         color: const Color(0xff747474),
@@ -248,7 +246,9 @@ class CustomCards {
                 ),
                 SizedBox(height: 1.h),
                 Text(
-                  "American Express Data Analysis ",
+                  title,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                   style: GoogleFonts.rajdhani(
                     fontWeight: FontWeight.bold,
                     color: const Color(0xff383838),
@@ -256,7 +256,9 @@ class CustomCards {
                   ),
                 ),
                 Text(
-                  "The American Express Data Analysis course o ",
+                  description,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                   style: GoogleFonts.rajdhani(
                     fontWeight: FontWeight.w500,
                     color: const Color(0xff747474),
@@ -268,7 +270,7 @@ class CustomCards {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const Text("View Course"),
+                    const Text("View Track"),
                     Icon(
                       Icons.arrow_forward_ios,
                       color: const Color(0xff747474),

@@ -13,7 +13,6 @@ class CoursesComponents {
       children: [
         Container(
           width: 100.w,
-          padding: EdgeInsets.symmetric(horizontal: 2.5.w),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -46,9 +45,8 @@ class CoursesComponents {
           ),
         ),
         SizedBox(height: 2.5.w),
-        Container(
+        SizedBox(
           width: 100.w,
-          padding: EdgeInsets.symmetric(horizontal: 2.5.w),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
