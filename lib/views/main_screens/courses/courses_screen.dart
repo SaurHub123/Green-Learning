@@ -114,6 +114,8 @@ class _CoursesScreenState extends State<CoursesScreen> {
                                         () => AllCareerGoalScreen(
                                           careerKey:
                                               banners[index]["key"]! as String,
+                                          careerTitle: banners[index]["title"]!
+                                              as String,
                                         ),
                                       );
                                     },

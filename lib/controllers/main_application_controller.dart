@@ -17,4 +17,5 @@ class MainApplicationController extends GetxController {
 
   // Course Screen
   var selectedFaq = 0.obs;
+  var selectedTrack = "".obs;
 }

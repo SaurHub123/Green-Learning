@@ -90,8 +90,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               width: 30,
                               decoration: const BoxDecoration(
                                 image: DecorationImage(
-                                  image: NetworkImage(
-                                    "https://img.icons8.com/color/48/confetti.png",
+                                  image: AssetImage(
+                                    "assets/images/confetti.png",
                                   ),
                                   fit: BoxFit.contain,
                                 ),
