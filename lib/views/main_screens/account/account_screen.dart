@@ -1,6 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:green_learning/utils/constants.dart';
+import 'package:green_learning/views/common/about_us_screen.dart';
+import 'package:green_learning/views/common/privacy_policy_screen.dart';
 import 'package:green_learning/views/main_screens/account/account_components.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -24,34 +28,51 @@ class _AccountScreenState extends State<AccountScreen> {
               Container(
                 width: 100.w,
                 padding: EdgeInsets.symmetric(horizontal: 5.w),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(height: 2.h),
-                    Text(
-                      "Complete your Profile",
-                      style: GoogleFonts.rajdhani(
-                        fontSize: 15.sp,
-                        fontWeight: FontWeight.w500,
-                        color: Constants.lightBorderColor.withOpacity(0.8),
-                      ),
-                      textAlign: TextAlign.start,
-                    ),
-                    SizedBox(height: 1.5.h),
-                    AccountComponents.progressTile(39),
-                    SizedBox(height: 1.h),
-                    Divider(color: Constants.lightBorderColor),
-                    SizedBox(height: 2.h),
-                    AccountComponents.profileTile(
-                      "assets/images/avt1.png",
-                      "Sumit Sauravt1.png",
-                      "kajalrituraj2002@gmail.com",
-                    ),
-                    SizedBox(height: 2.h),
-                    AccountComponents.completeProfileBtn("Complete Profile"),
-                    SizedBox(height: 2.h),
-                  ],
-                ),
+                child: FutureBuilder(
+                    future: FirebaseFirestore.instance
+                        .collection("users")
+                        .doc("8937936970")
+                        .get(),
+                    builder: (context, snapshot) {
+                      if (snapshot.hasData) {
+                        return Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(height: 2.h),
+                            Text(
+                              "Complete your Profile",
+                              style: GoogleFonts.rajdhani(
+                                fontSize: 15.sp,
+                                fontWeight: FontWeight.w500,
+                                color:
+                                    Constants.lightBorderColor.withOpacity(0.8),
+                              ),
+                              textAlign: TextAlign.start,
+                            ),
+                            SizedBox(height: 1.5.h),
+                            AccountComponents.progressTile(39),
+                            SizedBox(height: 1.h),
+                            Divider(color: Constants.lightBorderColor),
+                            SizedBox(height: 2.h),
+                            AccountComponents.profileTile(
+                              "assets/images/avt1.png",
+                              "Sumit Sauravt1.png",
+                              "kajalrituraj2002@gmail.com",
+                            ),
+                            SizedBox(height: 2.h),
+                            AccountComponents.completeProfileBtn(
+                                "Complete Profile"),
+                            SizedBox(height: 2.h),
+                          ],
+                        );
+                      } else {
+                        return Center(
+                          child: CircularProgressIndicator(
+                            color: Constants.primaryColor,
+                          ),
+                        );
+                      }
+                    }),
               ),
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 1.w),
@@ -83,6 +104,24 @@ class _AccountScreenState extends State<AccountScreen> {
                     AccountComponents.menuList(
                       Icons.money,
                       "Coupons and Rewards",
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Get.to(() => const AboutUsScreen());
+                      },
+                      child: AccountComponents.menuList(
+                        Icons.money,
+                        "About Us",
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Get.to(() => const PrivacyPolicyScreen());
+                      },
+                      child: AccountComponents.menuList(
+                        Icons.money,
+                        "Privacy and Policy",
+                      ),
                     ),
                     SizedBox(height: 2.h),
                   ],

@@ -25,11 +25,10 @@ class _ContactScreenState extends State<ContactScreen> {
             image: DecorationImage(
               image: AssetImage("assets/images/bc_contact.png"),
               fit: BoxFit.cover,
-
             ),
           ),
           child: SingleChildScrollView(
-            physics: BouncingScrollPhysics(),
+            physics: const BouncingScrollPhysics(),
             child: Column(
               children: [
                 InkWell(
@@ -50,7 +49,7 @@ class _ContactScreenState extends State<ContactScreen> {
                   children: [
                     Text(
                       "Hello",
-                      style:  GoogleFonts.rajdhani(
+                      style: GoogleFonts.rajdhani(
                         color: Colors.white,
                         fontSize: 28.sp,
                         fontWeight: FontWeight.w600,
@@ -64,32 +63,56 @@ class _ContactScreenState extends State<ContactScreen> {
                   ],
                 ),
                 SizedBox(height: 7.h),
-                Container(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Container(
-                        child:  Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
                           children: [
-                            Row(
-                              children: [Icon(Icons.email_outlined,size: 18.sp,), Text("Email",style:  GoogleFonts.rajdhani(fontWeight: FontWeight.bold),)],
+                            Icon(
+                              Icons.email_outlined,
+                              size: 18.sp,
                             ),
-                            Text("Abc@gmail.com",style:  GoogleFonts.rajdhani(fontWeight: FontWeight.w500),)
+                            Text(
+                              "Email",
+                              style: GoogleFonts.rajdhani(
+                                  fontWeight: FontWeight.bold),
+                            )
                           ],
                         ),
-                      ),
-                       Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            children: [Icon(Icons.phone,size: 18.sp,), Text("Phone",style:  GoogleFonts.rajdhani(fontWeight: FontWeight.bold),)],
-                          ),
-                          Text("+91 0000000000",style:  GoogleFonts.rajdhani(fontWeight: FontWeight.w500),)
-                        ],
-                      ),
-                    ],
-                  ),
+                        Text(
+                          "Abc@gmail.com",
+                          style:
+                              GoogleFonts.rajdhani(fontWeight: FontWeight.w500),
+                        )
+                      ],
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.phone,
+                              size: 18.sp,
+                            ),
+                            Text(
+                              "Phone",
+                              style: GoogleFonts.rajdhani(
+                                  fontWeight: FontWeight.bold),
+                            )
+                          ],
+                        ),
+                        Text(
+                          "+91 0000000000",
+                          style:
+                              GoogleFonts.rajdhani(fontWeight: FontWeight.w500),
+                        )
+                      ],
+                    ),
+                  ],
                 ),
                 SizedBox(
                   height: 3.h,
@@ -131,14 +154,21 @@ class _ContactScreenState extends State<ContactScreen> {
                     ],
                   ),
                 ),
-                SizedBox(height: 3.h,),
+                SizedBox(
+                  height: 3.h,
+                ),
                 Container(
                   height: 7.h,
                   width: 50.w,
                   alignment: Alignment.center,
                   color: Constants.primaryColor,
-                  child: Text("SUBMIT",style: TextStyle(fontWeight: FontWeight.w500,color: Colors.white,fontSize: 17.sp),),
-
+                  child: Text(
+                    "SUBMIT",
+                    style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        color: Colors.white,
+                        fontSize: 17.sp),
+                  ),
                 ),
               ],
             ),

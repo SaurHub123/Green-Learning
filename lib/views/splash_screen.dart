@@ -25,7 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   checkApplicationState() {
     String? cacheStringTimestamp =
-        Global.storageServices.getString(Constants.loginTimestamp);
+        Global.storageServices.getString(Constants.phoneNumber);
     if (cacheStringTimestamp != null) {
       // DateTime currentTimestamp = DateTime.now();
       // DateTime cacheTimestamp = DateTime.parse(cacheStringTimestamp);
@@ -63,10 +63,11 @@ class _SplashScreenState extends State<SplashScreen> {
         width: 100.w,
         child: Center(
           child: Text(
-            "Reclaim India",
+            "Uniford Green Learning",
+            maxLines: 2,
             style: GoogleFonts.poppins(
-              color: Colors.black,
-              fontSize: 18.sp,
+              color: Constants.primaryColor,
+              fontSize: 19.sp,
               fontWeight: FontWeight.bold,
             ),
           ),

@@ -86,36 +86,47 @@ class _AllCareerGoalScreenState extends State<AllCareerGoalScreen> {
                               .get(),
                           builder: (context, snapshot) {
                             if (snapshot.hasData) {
-                              // _mainApplicationController.selectedTrack.value =
-                              //     snapshot.data!.docs[0]["title"];
-                              return ListView.builder(
-                                  physics: const BouncingScrollPhysics(),
-                                  itemCount: snapshot.data!.docs.length,
-                                  itemBuilder: (context, index) {
-                                    var data = snapshot.data!.docs[index];
-                                    return InkWell(
-                                      onTap: () {
-                                        print("hoo");
-                                        _mainApplicationController.selectedTrack
-                                            .value = data["title"];
-                                        panelController.open();
-                                      },
-                                      child: Column(
-                                        children: [
-                                          CustomCards.singleTrackCard(
-                                            data["title"],
-                                            data["description"],
-                                            "klo",
-                                          ),
-                                          SizedBox(height: 2.5.w),
-                                          snapshot.data!.docs.length - 1 ==
-                                                  index
-                                              ? SizedBox(height: 15.h)
-                                              : const SizedBox(),
-                                        ],
-                                      ),
-                                    );
-                                  });
+                              if (snapshot.data!.docs.isNotEmpty) {
+                                return ListView.builder(
+                                    physics: const BouncingScrollPhysics(),
+                                    itemCount: snapshot.data!.docs.length,
+                                    itemBuilder: (context, index) {
+                                      var data = snapshot.data!.docs[index];
+                                      return InkWell(
+                                        onTap: () {
+                                          _mainApplicationController
+                                              .selectedTrack
+                                              .value = data["title"];
+                                          panelController.open();
+                                        },
+                                        child: Column(
+                                          children: [
+                                            CustomCards.singleTrackCard(
+                                              data["title"],
+                                              data["description"],
+                                              "klo",
+                                            ),
+                                            SizedBox(height: 2.5.w),
+                                            snapshot.data!.docs.length - 1 ==
+                                                    index
+                                                ? SizedBox(height: 15.h)
+                                                : const SizedBox(),
+                                          ],
+                                        ),
+                                      );
+                                    });
+                              } else {
+                                return Center(
+                                  child: Text(
+                                    "No Any content for now.!",
+                                    style: GoogleFonts.rajdhani(
+                                      color: Constants.primaryColor,
+                                      fontSize: 18.sp,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                );
+                              }
                             } else {
                               return Center(
                                 child: CircularProgressIndicator(
@@ -134,45 +145,6 @@ class _AllCareerGoalScreenState extends State<AllCareerGoalScreen> {
                     ),
                   ],
                 ),
-                // child: Padding(
-                //   padding: EdgeInsets.symmetric(horizontal: 2.5.w),
-                //   child: FutureBuilder<QuerySnapshot>(
-                //     future: FirebaseFirestore.instance
-                //         .collection(widget.careerKey)
-                //         .get(),
-                //     builder: (context, snapshot) {
-                //       if (snapshot.hasData) {
-                //         return ListView.builder(
-                //             physics: const BouncingScrollPhysics(),
-                //             itemCount: snapshot.data!.docs.length,
-                //             itemBuilder: (context, index) {
-                //               var data = snapshot.data!.docs[index];
-                //               return InkWell(
-                //                 onTap: () {
-                //                   print("hoo");
-                //                 },
-                //                 child: Column(
-                //                   children: [
-                //                     CustomCards.singleTrackCard(
-                //                       data["title"],
-                //                       data["description"],
-                //                       "klo",
-                //                     ),
-                //                     SizedBox(height: 2.5.w),
-                //                   ],
-                //                 ),
-                //               );
-                //             });
-                //       } else {
-                //         return Center(
-                //           child: CircularProgressIndicator(
-                //             color: Constants.primaryColor,
-                //           ),
-                //         );
-                //       }
-                //     },
-                //   ),
-                // ),
               ),
               // SizedBox(height: 15.h),
             ],

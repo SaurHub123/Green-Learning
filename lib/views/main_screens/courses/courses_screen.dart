@@ -25,9 +25,9 @@ class _CoursesScreenState extends State<CoursesScreen> {
           "The course can be accessed on any device with an active internet connection. However, a laptop or PC will be required for attempting select projects and assignments.",
     },
     {
-      "question": "For how long can I access the course after purchasing it?",
+      "question": "For how long can I access the course",
       "answer":
-          "You will have access to complete learning material of the course for 1 year from the date of purchase of the course.",
+          "You will have access to complete learning material of the course for lifetime.",
     },
     {
       "question": "What do I receive after completing a course?",
@@ -37,7 +37,7 @@ class _CoursesScreenState extends State<CoursesScreen> {
     {
       "question": "Have an unresolved question?",
       "answer":
-          "Please write to support@unstop.com with any further questions.",
+          "Please write to support@uniford.com with any further questions.",
     },
   ];
   var banners = [

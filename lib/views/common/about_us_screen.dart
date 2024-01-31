@@ -18,29 +18,41 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
       body: Container(
         height: 100.h,
         width: 100.w,
-        // color: Colors.yellow,
         padding: EdgeInsets.symmetric(horizontal: 5.w),
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage("assets/images/about.png"),
             fit: BoxFit.fill,
           ),
         ),
-
         child: Stack(
           alignment: Alignment.center,
           children: [
+            Positioned(
+              top: AppBar().preferredSize.height,
+              left: 2.5.w,
+              child: InkWell(
+                onTap: () {
+                  Get.back();
+                },
+                child: Icon(
+                  Icons.arrow_back,
+                  color: Colors.black,
+                  size: 20.sp,
+                ),
+              ),
+            ),
             Positioned(
               top: 17.5.h,
               child: Container(
                 height: 82.5.h,
                 width: 90.w,
-                // color: Colors.black,
                 decoration: BoxDecoration(
-                    color: Color(0xffd3e3ee),
-                    borderRadius: BorderRadius.all(Radius.circular(10.sp))),
+                  color: const Color(0xffd3e3ee),
+                  borderRadius: BorderRadius.all(Radius.circular(10.sp)),
+                ),
                 child: SingleChildScrollView(
-                  physics: BouncingScrollPhysics(),
+                  physics: const BouncingScrollPhysics(),
                   child: Column(
                     children: [
                       SizedBox(

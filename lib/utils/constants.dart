@@ -43,6 +43,7 @@ class Constants {
   //----------------------------------------------------------------
   static const String loginTimestamp = "LOGIN_TIMESTAMP";
   static const String accessTime = "ACCESS_TIME";
+  static const String phoneNumber = "PHONE_NUMBER";
 
   //----------------------------------------------------------------
   // Collection Names Constants

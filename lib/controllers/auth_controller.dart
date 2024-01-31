@@ -1,13 +1,10 @@
 import 'dart:developer';
-
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:green_learning/services/global.dart';
 import 'package:green_learning/utils/constants.dart';
-import 'package:green_learning/views/common/upgrade_account_screen.dart';
-import 'package:green_learning/views/main_screens/dashboard/dashboard_screen.dart';
 import 'package:green_learning/views/main_screens/main_home_screen.dart';
 
 class AuthController extends GetxController {
@@ -28,22 +25,11 @@ class AuthController extends GetxController {
         .get();
 
     if (db.exists) {
-      // check the timestamp here
-      DateTime dbTimestamp = db.get("timestamp").toDate();
-      DateTime currentTimestamp = DateTime.now();
-      Global.storageServices
-          .setString(Constants.loginTimestamp, dbTimestamp.toString());
-
-      // Calculate the difference in hours
-      int hoursDifference = currentTimestamp.difference(dbTimestamp).inHours;
-
-      if (hoursDifference > 24) {
-        // User access is restricted
-        Get.offAll(() => const UpgradeAccountScreen());
-      } else {
-        // User access is allowed, navigate to the DashboardScreen
-        Get.offAll(() => const MainHomeScreen());
-      }
+      Global.storageServices.setString(
+        Constants.phoneNumber,
+        oneDayPhoneNumber.text,
+      );
+      Get.offAll(() => const MainHomeScreen());
     } else {
       await FirebaseFirestore.instance
           .collection("users")
@@ -53,15 +39,10 @@ class AuthController extends GetxController {
         "timestamp": DateTime.now(),
       });
       Global.storageServices.setString(
-        Constants.loginTimestamp,
-        DateTime.now().toString(),
+        Constants.phoneNumber,
+        oneDayPhoneNumber.text,
       );
-      // Global.storageServices.setString(
-      //   Constants.accessTime,
-      //   Constants.limitedDayAccess,
-      // );
-
-      Get.offAll(() => const DashboardScreen());
+      Get.offAll(() => const MainHomeScreen());
     }
     otpVerifying.value = false;
   }

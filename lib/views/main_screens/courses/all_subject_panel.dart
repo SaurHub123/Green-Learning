@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:green_learning/controllers/main_application_controller.dart';
 import 'package:green_learning/utils/constants.dart';
 import 'package:green_learning/utils/functions.dart';
+import 'package:green_learning/views/main_screens/courses/resources/main_resources_screen.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
@@ -94,27 +95,51 @@ class _AllSubjectPanelState extends State<AllSubjectPanel> {
                                   .selectedTrack.value)
                               .get(),
                           builder: (context, snapshot) {
+                            print(
+                                _mainApplicationController.selectedTrack.value);
                             if (snapshot.hasData) {
-                              return ListView.builder(
-                                  itemCount: snapshot.data!.docs.length,
-                                  itemBuilder: (context, index) {
-                                    return InkWell(
-                                      onTap: () {},
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: [
-                                          subjectTile(
-                                            index,
-                                            snapshot.data!.docs[index]['title'],
-                                          ),
-                                          // SizedBox(height: 2.5.w),
-                                        ],
-                                      ),
-                                    );
-                                  });
+                              if (snapshot.data!.docs.isNotEmpty) {
+                                return ListView.builder(
+                                    itemCount: snapshot.data!.docs.length,
+                                    itemBuilder: (context, index) {
+                                      var data = snapshot.data!.docs[index];
+                                      return InkWell(
+                                        onTap: () {
+                                          Get.to(
+                                            () => MainResourcesScreen(
+                                              subjectName: snapshot
+                                                  .data!.docs[index]['title'],
+                                              careerKey: widget.careerKey,
+                                            ),
+                                          );
+                                        },
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            subjectTile(
+                                              index,
+                                              data['title'],
+                                              data['description'] ?? "",
+                                            ),
+                                          ],
+                                        ),
+                                      );
+                                    });
+                              } else {
+                                return Center(
+                                  child: Text(
+                                    "No Any content for now.!",
+                                    style: GoogleFonts.rajdhani(
+                                      color: Constants.primaryColor,
+                                      fontSize: 18.sp,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                );
+                              }
                             } else {
                               return Center(
                                 child: CircularProgressIndicator(
@@ -133,7 +158,7 @@ class _AllSubjectPanelState extends State<AllSubjectPanel> {
     );
   }
 
-  Widget subjectTile(int index, String title) {
+  Widget subjectTile(int index, String title, String description) {
     return Container(
       height: 200,
       width: 100.w,
@@ -239,6 +264,20 @@ class _AllSubjectPanelState extends State<AllSubjectPanel> {
                       fontSize: 20.sp,
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(height: 2.5.w),
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 2.5.w),
+                    child: Text(
+                      description,
+                      maxLines: 4,
+                      overflow: TextOverflow.ellipsis,
+                      style: GoogleFonts.rajdhani(
+                        fontSize: 15.sp,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                   ),
                 ],
