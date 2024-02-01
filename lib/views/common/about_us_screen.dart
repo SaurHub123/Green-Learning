@@ -59,13 +59,14 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
                         height: 13.h,
                       ),
                       Container(
-                        padding: EdgeInsets.symmetric(horizontal: 10.w),
+                        // color: Colors.deepPurpleAccent,
+                        padding: EdgeInsets.symmetric(horizontal: 6.w),
                         // color: Colors.yellow,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "Empowering Minds, Transforming Futures",
+                              "Uniford Foundation: Expanding Access to Education",
                               style: GoogleFonts.rajdhani(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 20.sp,
@@ -75,66 +76,218 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
                             SizedBox(
                               height: 2.h,
                             ),
+                            const Text(
+                                "At Uniford Foundation, we believe that education is a fundamental human right that should be available to all, regardless of socioeconomic status or geography. Established in 2019, our non-profit organization is driven by a vision of a world where every motivated mind has the opportunity to transform their lives through learning."),
+                            SizedBox(
+                              height: 2.h,
+                            ),
                             Text(
-                              "Mission Statement:",
+                              "Our Roots:",
                               style: GoogleFonts.rajdhani(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 18.sp,
                               ),
                               textAlign: TextAlign.start,
                             ),
-                            Text(
-                                "At [Organization Name], our mission is clear: to democratize education by providing free and accessible resources to learners worldwide. We believe that knowledge is a universal right and should be within reach of everyone, regardless of their background or circumstances."),
+                            const Text(
+                                "Uniford was founded by a group of educators, activists and philanthropists who came together to address the glaring education gap that exists both in our own country and globally. They firmly believed that with the right tools and systems, we can empower underserved communities to lift themselves out of the cycle of poverty."),
+                            SizedBox(
+                              height: 2.h,
+                            ),
+
+                            const Text(
+                                "Our founders’ experiences volunteering in rural areas revealed bright students turning away from school due to lack of access, resources and support. It became Uniford’s mission to reshape this reality."),
                             SizedBox(
                               height: 2.h,
                             ),
                             Text(
-                              "Our Vision:",
+                              "What We Do:",
                               style: GoogleFonts.rajdhani(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 18.sp,
                               ),
                               textAlign: TextAlign.start,
                             ),
+                            SizedBox(
+                              height: 1.h,
+                            ),
                             Text(
-                                "We envision a world where education is not a privilege but a fundamental right, empowering individuals to shape their destinies and contribute positively to society."),
+                              "We provide the scaffolding needed to fortify education worldwide through:",
+                              style: GoogleFonts.rajdhani(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16.sp,
+                              ),
+                              textAlign: TextAlign.start,
+                            ),
+                            SizedBox(
+                              height: 1.h,
+                            ),
+                            // School Sponsorships:
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'School Sponsorships: ',
+                                    style: GoogleFonts.rajdhani(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors
+                                          .black, // Optional color setting
+                                    ),
+                                  ),
+                                  const TextSpan(
+                                    text:
+                                        'By funding the operations and facilities of schools in remote areas, we enable free access to quality education for thousands of children.',
+                                    style: TextStyle(color: Colors.black),
+                                  ),
+                                ],
+                              ),
+                            ),
                             SizedBox(
                               height: 2.h,
                             ),
+                            // Digital Access Programs:
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Digital Access Programs: ',
+                                    style: GoogleFonts.rajdhani(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors
+                                          .black, // Optional color setting
+                                    ),
+                                  ),
+                                  const TextSpan(
+                                    text:
+                                        'By funding the operations and facilities of schools in remote areas, we enable free access to quality education for thousands of children.',
+                                    style: TextStyle(color: Colors.black),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            SizedBox(
+                              height: 2.h,
+                            ),
+                            // Scholarships & Grants:
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Scholarships & Grants: ',
+                                    style: GoogleFonts.rajdhani(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors
+                                          .black, // Optional color setting
+                                    ),
+                                  ),
+                                  const TextSpan(
+                                    text:
+                                        'We offer financial aid to meritorious students from disadvantaged backgrounds to access higher education and vocational skills training.',
+                                    style: TextStyle(color: Colors.black),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            SizedBox(
+                              height: 2.h,
+                            ),
+                            // E-Learning Platform:
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'E-Learning Platform: ',
+                                    style: GoogleFonts.rajdhani(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors
+                                          .black, // Optional color setting
+                                    ),
+                                  ),
+                                  const TextSpan(
+                                    text:
+                                        'Our online portal hosts courses and study resources accessible by mobile device, assisting self-learners globally.',
+                                    style: TextStyle(color: Colors.black),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            SizedBox(
+                              height: 2.h,
+                            ),
+
+                            // Mentorship Networks:
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Mentorship Networks:  ',
+                                    style: GoogleFonts.rajdhani(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors
+                                          .black, // Optional color setting
+                                    ),
+                                  ),
+                                  const TextSpan(
+                                    text:
+                                        'By connecting students to leaders across industries for guidance, we empower them to maximize opportunities.',
+                                    style: TextStyle(color: Colors.black),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            SizedBox(
+                              height: 2.h,
+                            ),
+
                             Text(
-                              "Who We Are:",
+                              "Our Impact",
                               style: GoogleFonts.rajdhani(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 18.sp,
                               ),
                               textAlign: TextAlign.start,
                             ),
-                            Text(
-                                "is a non-profit organization dedicated to creating a culture of inclusivity and empowerment through education. We are driven by the belief that education is the key to unlocking potential and fostering positive change."),
+                            const Text(
+                                "Starting with just three remote village schools, Uniford Foundation now supports over 100 learning centers across 6 countries, handing out more than 5,000 scholarships yearly. Our graduates include doctors, entrepreneurs and leaders catalyzing progress in their communities."),
+                            SizedBox(
+                              height: 2.h,
+                            ),
+                            Container(
+                              child: RichText(
+                                text: TextSpan(
+                                  children: [
+                                    const TextSpan(
+                                      text:
+                                          'As our founder chairman Nelson Wiley puts it,',
+                                      style: TextStyle(color: Colors.black),
+                                    ),
+                                    TextSpan(
+                                      text:
+                                          ' “The journey forward is long, but our strides are firm and focused. We remain committed to the vision of making education borderless.”',
+                                      style: GoogleFonts.rajdhani(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18.sp,
+                                        color: Colors.black,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
                             SizedBox(
                               height: 2.h,
                             ),
                             Text(
-                              "Community Engagement:",
+                              "Join Our Journey",
                               style: GoogleFonts.rajdhani(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 18.sp,
                               ),
                               textAlign: TextAlign.start,
                             ),
-                            Text(
-                                "s more than just a platform; it's a community. Join us as a learner, volunteer, donor, or supporter, and be part of a movement that believes in the transformative power of education."),
-                            SizedBox(
-                              height: 2.h,
-                            ),
-                            Text(
-                              "Join Us in shaping a world where education is a right, not a privilege. Explore, learn, and grow with us!",
-                              style: GoogleFonts.rajdhani(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18.sp,
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
+                            const Text(
+                                "Uniford is powered by a tribe of passionate individuals - sponsors, volunteers, partner non-profits and beneficiaries come together in this mission to reshape lives through learning. Become a part of our story today."),
+
                             SizedBox(
                               height: 5.h,
                             ),
