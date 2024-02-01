@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:green_learning/utils/constants.dart';
 import 'package:green_learning/views/common/about_us_screen.dart';
 import 'package:green_learning/views/common/privacy_policy_screen.dart';
+import 'package:green_learning/views/common/our_work.dart';
 import 'package:green_learning/views/main_screens/account/account_components.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -112,6 +113,15 @@ class _AccountScreenState extends State<AccountScreen> {
                       child: AccountComponents.menuList(
                         Icons.money,
                         "About Us",
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Get.to(() =>  OurWork());
+                      },
+                      child: AccountComponents.menuList(
+                        Icons.money,
+                        "Our Work",
                       ),
                     ),
                     InkWell(
