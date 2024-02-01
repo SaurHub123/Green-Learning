@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:green_learning/utils/constants.dart';
+import 'package:green_learning/views/auth/registration_form_screen.dart';
 import 'package:green_learning/views/common/about_us_screen.dart';
 import 'package:green_learning/views/common/privacy_policy_screen.dart';
 import 'package:green_learning/views/common/our_work.dart';
@@ -93,9 +94,17 @@ class _AccountScreenState extends State<AccountScreen> {
                 child: Column(
                   children: [
                     SizedBox(height: 1.h),
-                    AccountComponents.menuList(
-                      Icons.person,
-                      "Registrations/Applications",
+                    InkWell(
+                      overlayColor:
+                          MaterialStateProperty.all(Colors.transparent),
+                      onTap: () {
+                        Get.to(
+                            () => const RegistrationFormScreen(update: true));
+                      },
+                      child: AccountComponents.menuList(
+                        Icons.person,
+                        "Registrations/Applications",
+                      ),
                     ),
                     AccountComponents.menuList(
                       Icons.heart_broken,
@@ -107,6 +116,8 @@ class _AccountScreenState extends State<AccountScreen> {
                       "Coupons and Rewards",
                     ),
                     InkWell(
+                      overlayColor:
+                          MaterialStateProperty.all(Colors.transparent),
                       onTap: () {
                         Get.to(() => const AboutUsScreen());
                       },
@@ -116,8 +127,10 @@ class _AccountScreenState extends State<AccountScreen> {
                       ),
                     ),
                     InkWell(
+                      overlayColor:
+                          MaterialStateProperty.all(Colors.transparent),
                       onTap: () {
-                        Get.to(() =>  OurWork());
+                        Get.to(() => const OurWork());
                       },
                       child: AccountComponents.menuList(
                         Icons.money,
@@ -125,6 +138,8 @@ class _AccountScreenState extends State<AccountScreen> {
                       ),
                     ),
                     InkWell(
+                      overlayColor:
+                          MaterialStateProperty.all(Colors.transparent),
                       onTap: () {
                         Get.to(() => const PrivacyPolicyScreen());
                       },
