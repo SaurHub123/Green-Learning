@@ -17,6 +17,13 @@ class RegistrationFormScreen extends StatefulWidget {
 }
 
 class _RegistrationFormScreenState extends State<RegistrationFormScreen> {
+  final _firstnameController = TextEditingController();
+  final _lastnameController = TextEditingController();
+  final _emailController = TextEditingController();
+  final _phoneController = TextEditingController();
+
+  int _currentStep = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,11 +63,116 @@ class _RegistrationFormScreenState extends State<RegistrationFormScreen> {
                   ],
                 ),
               ),
-              // Start Form Code..
+              SizedBox(height: 2.h),
+              Expanded(
+                child: Stepper(
+                  steps: getSteps(),
+                  onStepCancel: () {
+                    if (_currentStep > 0) {
+                      setState(() {
+                        _currentStep--;
+                      });
+                    }
+                  },
+                  currentStep: _currentStep,
+                  onStepContinue: () {
+                    final isLastStep = _currentStep == getSteps().length - 1;
+                    if (isLastStep) {
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            title: const Text("Form Submitted"),
+                            content: const Text(
+                                "Your Form Has been submitted Successfully"),
+                            actions: [
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                child: const Text("OK"),
+                              )
+                            ],
+                          );
+                        },
+                      );
+                    } else {
+                      setState(() {
+                        _currentStep++;
+                      });
+                    }
+                  },
+                ),
+              )
             ],
           ),
         ),
       ),
     );
+  }
+
+  List<Step> getSteps() {
+    return [
+      Step(
+        title: Text("Name"),
+        content: Column(
+          children: [
+            SizedBox(height: 0.5.h),
+            TextFormField(
+              controller: _firstnameController,
+              decoration: const InputDecoration(
+                labelText: "First Name",
+                border: OutlineInputBorder(),
+              ),
+
+            ),
+
+
+            SizedBox(height: 2.h),
+            TextFormField(
+              controller: _lastnameController,
+              decoration: const InputDecoration(
+                labelText: "Last Name",
+                border: OutlineInputBorder(),
+              ),
+
+            )
+
+          ],
+        ),
+      ),
+      Step(
+        title: const Text("Email"),
+        content: Column(
+          children: [
+            SizedBox(height: 0.5.h),
+            TextFormField(
+              controller: _emailController,
+              decoration: const InputDecoration(
+                labelText: "Email",
+                border: OutlineInputBorder(),
+              ),
+            ),
+            SizedBox(height: 2.h),
+          ],
+        ),
+      ),
+      Step(
+        title: const Text("Phone Number Field"),
+        content: Column(
+          children: [
+            SizedBox(height: 0.5.h),
+            TextFormField(
+              controller: _phoneController,
+              decoration: const InputDecoration(
+                labelText: "Phone",
+                border: OutlineInputBorder(),
+              ),
+            ),
+            SizedBox(height: 2.h),
+          ],
+        ),
+      ),
+    ];
   }
 }

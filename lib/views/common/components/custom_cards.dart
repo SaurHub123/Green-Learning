@@ -288,4 +288,59 @@ class CustomCards {
       ),
     );
   }
+
+  static Widget aboutCard( String imagedata, String heading, String desc,Color backColor){
+
+    return Container(
+      padding: EdgeInsets.all(4.w),
+      width: 100.w,
+      decoration: BoxDecoration(
+          color: backColor,
+          borderRadius: BorderRadius.circular(12.sp)),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment:
+        MainAxisAlignment.spaceBetween,
+        children: [
+          Container(
+            height: 7.h,
+            width: 7.h,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(
+                    Radius.circular(10.sp)),
+                image:  DecorationImage(
+                  image: AssetImage(imagedata),
+                  fit: BoxFit.cover,
+                )),
+          ),
+          Container(
+              height: 5.h,
+              width: 80.w,
+              child: Row(
+                mainAxisAlignment:
+                MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    heading,
+                    style: GoogleFonts.rajdhani(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                        fontSize: 18.sp // Optional color setting
+                    ),
+                  ),
+                ],
+              )),
+
+          SizedBox(
+            height: 1.h,
+          ),
+           Text(desc),
+          SizedBox(
+            height: 1.h,
+          ),
+        ],
+      ),
+    );
+
+  }
 }

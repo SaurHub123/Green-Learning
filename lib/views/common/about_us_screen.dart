@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:green_learning/utils/constants.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import '../common/components/custom_cards.dart';
 
 class AboutUsScreen extends StatefulWidget {
   const AboutUsScreen({super.key});
@@ -18,16 +19,30 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
       body: Container(
         height: 100.h,
         width: 100.w,
-        padding: EdgeInsets.symmetric(horizontal: 5.w),
+        // padding: EdgeInsets.symmetric(horizontal: 1.w),
         decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("assets/images/about.png"),
-            fit: BoxFit.fill,
-          ),
+          // image: DecorationImage(
+          //   image: AssetImage("assets/images/about.png"),
+          //   fit: BoxFit.fill,
+          // ),
+          color: const Color(0xffd3e3ee),
         ),
         child: Stack(
-          alignment: Alignment.center,
+          // alignment: Alignment.,
           children: [
+            Positioned(
+              top: 5.h,
+              child: Container(
+                height: 20.h,
+                width: 80.w,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(10.sp)),
+                    image: const DecorationImage(
+                      image: AssetImage("assets/images/about-us.png"),
+                      fit: BoxFit.cover,
+                    )),
+              ),
+            ),
             Positioned(
               top: AppBar().preferredSize.height,
               left: 2.5.w,
@@ -43,20 +58,30 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
               ),
             ),
             Positioned(
-              top: 17.5.h,
+              top: 23.h,
               child: Container(
                 height: 82.5.h,
-                width: 90.w,
-                decoration: BoxDecoration(
-                  color: const Color(0xffd3e3ee),
-                  borderRadius: BorderRadius.all(Radius.circular(10.sp)),
+                width: 100.w,
+                decoration: const BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(10),
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Color(0xffDDDDDD),
+                      blurRadius: 6.0,
+                      spreadRadius: 2.0,
+                      offset: Offset(0.0, 0.0),
+                    )
+                  ],
                 ),
                 child: SingleChildScrollView(
                   physics: const BouncingScrollPhysics(),
                   child: Column(
                     children: [
                       SizedBox(
-                        height: 13.h,
+                        height: 5.h,
                       ),
                       Container(
                         // color: Colors.deepPurpleAccent,
@@ -65,6 +90,20 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
+                            Center(
+                              child: Text(
+                                "About Us",
+                                style: GoogleFonts.rajdhani(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 25.sp,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+
+                            SizedBox(
+                              height: 2.h,
+                            ),
                             Text(
                               "Uniford Foundation: Expanding Access to Education",
                               style: GoogleFonts.rajdhani(
@@ -119,122 +158,32 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
                               ),
                               textAlign: TextAlign.start,
                             ),
+
                             SizedBox(
-                              height: 1.h,
+                              height: 2.h,
                             ),
                             // School Sponsorships:
-                            RichText(
-                              text: TextSpan(
-                                children: [
-                                  TextSpan(
-                                    text: 'School Sponsorships: ',
-                                    style: GoogleFonts.rajdhani(
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors
-                                          .black, // Optional color setting
-                                    ),
-                                  ),
-                                  const TextSpan(
-                                    text:
-                                        'By funding the operations and facilities of schools in remote areas, we enable free access to quality education for thousands of children.',
-                                    style: TextStyle(color: Colors.black),
-                                  ),
-                                ],
-                              ),
-                            ),
+                            CustomCards.aboutCard("assets/images/scholarship.png","School Sponsorships:","By funding the operations and facilities of schools in remote areas, we enable free access to quality education for thousands of children.",  Color(0xffFCF1E8),),
                             SizedBox(
                               height: 2.h,
                             ),
                             // Digital Access Programs:
-                            RichText(
-                              text: TextSpan(
-                                children: [
-                                  TextSpan(
-                                    text: 'Digital Access Programs: ',
-                                    style: GoogleFonts.rajdhani(
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors
-                                          .black, // Optional color setting
-                                    ),
-                                  ),
-                                  const TextSpan(
-                                    text:
-                                        'By funding the operations and facilities of schools in remote areas, we enable free access to quality education for thousands of children.',
-                                    style: TextStyle(color: Colors.black),
-                                  ),
-                                ],
-                              ),
-                            ),
+                            CustomCards.aboutCard("assets/images/mobile.png","Digital Access Programs:","Our initiatives like Internet-enabled computer labs with educational content support digital literacy for rural populations.",  Color(0xffe3f6e9),),
                             SizedBox(
                               height: 2.h,
                             ),
                             // Scholarships & Grants:
-                            RichText(
-                              text: TextSpan(
-                                children: [
-                                  TextSpan(
-                                    text: 'Scholarships & Grants: ',
-                                    style: GoogleFonts.rajdhani(
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors
-                                          .black, // Optional color setting
-                                    ),
-                                  ),
-                                  const TextSpan(
-                                    text:
-                                        'We offer financial aid to meritorious students from disadvantaged backgrounds to access higher education and vocational skills training.',
-                                    style: TextStyle(color: Colors.black),
-                                  ),
-                                ],
-                              ),
-                            ),
+                            CustomCards.aboutCard("assets/images/school.png","Scholarships & Grants:","We offer financial aid to meritorious students from disadvantaged backgrounds to access higher education and vocational skills training.", Color(0xffc5e2ff),),
                             SizedBox(
                               height: 2.h,
                             ),
-                            // E-Learning Platform:
-                            RichText(
-                              text: TextSpan(
-                                children: [
-                                  TextSpan(
-                                    text: 'E-Learning Platform: ',
-                                    style: GoogleFonts.rajdhani(
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors
-                                          .black, // Optional color setting
-                                    ),
-                                  ),
-                                  const TextSpan(
-                                    text:
-                                        'Our online portal hosts courses and study resources accessible by mobile device, assisting self-learners globally.',
-                                    style: TextStyle(color: Colors.black),
-                                  ),
-                                ],
-                              ),
-                            ),
+                            // E-Learning Platform
+                            CustomCards.aboutCard("assets/images/online-learning.png","E-Learning Platform:","Our online portal hosts courses and study resources accessible by mobile device, assisting self-learners globally.",  Color(0xfffce8ef),),
                             SizedBox(
                               height: 2.h,
                             ),
-
-                            // Mentorship Networks:
-                            RichText(
-                              text: TextSpan(
-                                children: [
-                                  TextSpan(
-                                    text: 'Mentorship Networks:  ',
-                                    style: GoogleFonts.rajdhani(
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors
-                                          .black, // Optional color setting
-                                    ),
-                                  ),
-                                  const TextSpan(
-                                    text:
-                                        'By connecting students to leaders across industries for guidance, we empower them to maximize opportunities.',
-                                    style: TextStyle(color: Colors.black),
-                                  ),
-                                ],
-                              ),
-                            ),
+                            //Mentorship Networks:
+                            CustomCards.aboutCard("assets/images/mentorship.png","Mentorship Networks:"," By connecting students to leaders across industries for guidance, we empower them to maximize opportunities.",  Color(0xffebe8fd),),
                             SizedBox(
                               height: 2.h,
                             ),
@@ -299,31 +248,32 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
                 ),
               ),
             ),
-            Positioned(
-              top: 10.h,
-              child: Container(
-                // padding: EdgeInsets.all(5.sp),
-                height: 16.h,
-                width: 16.h,
-                decoration: BoxDecoration(
-                    border: Border.all(
-                      color: Constants.primaryColor,
-                      width: 5,
-                    ),
-                    borderRadius: BorderRadius.all(Radius.circular(14.sp))),
-                child: Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(14.sp)),
-                      image: const DecorationImage(
-                        image: AssetImage("assets/images/abt.jpg"),
-                        fit: BoxFit.cover,
-                      )),
-                ),
-              ),
-            ),
+            // Positioned(
+            //   top: 10.h,
+            //   child: Container(
+            //     // padding: EdgeInsets.all(5.sp),
+            //     height: 16.h,
+            //     width: 16.h,
+            //     decoration: BoxDecoration(
+            //         border: Border.all(
+            //           color: Constants.primaryColor,
+            //           width: 5,
+            //         ),
+            //         borderRadius: BorderRadius.all(Radius.circular(14.sp))),
+            //     child: Container(
+            //       decoration: BoxDecoration(
+            //           borderRadius: BorderRadius.all(Radius.circular(10.sp)),
+            //           image: const DecorationImage(
+            //             image: AssetImage("assets/images/about-us.png"),
+            //             fit: BoxFit.cover,
+            //           )),
+            //     ),
+            //   ),
+            // ),
           ],
         ),
       ),
     );
   }
+  
 }
