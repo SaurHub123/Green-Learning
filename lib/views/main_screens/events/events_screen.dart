@@ -29,7 +29,48 @@ class _EventsScreenState extends State<EventsScreen> {
           padding: EdgeInsets.symmetric(horizontal: 5.w),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              SizedBox(height: 2.5.w),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 2.5.w),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Icon(
+                      Icons.compare,
+                      size: 20.sp,
+                      color: Constants.primaryColor,
+                    ),
+                    SizedBox(width: 2.5.w),
+                    Text(
+                      "Events",
+                      textAlign: TextAlign.start,
+                      style: TextStyle(
+                        fontSize: 18.sp,
+                        color: Constants.primaryColor,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Let's get started with some competition.!",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 15.sp,
+                      color: Constants.primaryColor,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 5.w),
               Expanded(
                 child: FutureBuilder<QuerySnapshot>(
                   future: FirebaseFirestore.instance.collection("events").get(),
@@ -73,34 +114,89 @@ class _EventsScreenState extends State<EventsScreen> {
 
   Widget singleEventTile(var data) {
     return Container(
-      height: 300,
       width: 100.w,
-      padding: EdgeInsets.symmetric(horizontal: 2.5.w, vertical: 2.5.w),
+      padding: EdgeInsets.symmetric(horizontal: 1.5.w, vertical: 1.5.w),
       decoration: BoxDecoration(
-        color: Constants.primaryColor,
+        color: Constants.accountLightGreen,
         borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(10.w),
-          topRight: Radius.circular(10.w),
-          bottomLeft: Radius.circular(10.w),
+          topLeft: Radius.circular(2.5.w),
+          topRight: Radius.circular(15.w),
+          // bottomLeft: Radius.circular(10.w),
         ),
       ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            height: 250,
+            height: 230,
             width: 100.w,
             decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(2.5.w),
+                topRight: Radius.circular(15.w),
+                // bottomLeft: Radius.circular(10.w),
+              ),
               image: DecorationImage(
-                image: AssetImage(data['image']),
+                image: NetworkImage(data['image']),
+                fit: BoxFit.cover,
               ),
             ),
           ),
-          Text(
-            data['title'] ?? "",
-            style: GoogleFonts.rajdhani(
-              color: Constants.primaryColor,
-              fontSize: 18.sp,
-              fontWeight: FontWeight.w600,
+          SizedBox(height: 2.5.w),
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 2.5.w),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "24/02/2024",
+                      style: GoogleFonts.rajdhani(
+                        color: Constants.primaryColor,
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.normal,
+                      ),
+                    ),
+                    Text(
+                      data['title'] ?? "",
+                      style: GoogleFonts.rajdhani(
+                        color: Constants.primaryColor,
+                        fontSize: 18.sp,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    Text(
+                      data['category'] ?? "",
+                      style: GoogleFonts.rajdhani(
+                        color: Constants.primaryColor.withOpacity(0.5),
+                        fontSize: 15.sp,
+                        fontWeight: FontWeight.normal,
+                      ),
+                    ),
+                  ],
+                ),
+                Container(
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 5.w, vertical: 1.5.w),
+                  // decoration: BoxDecoration(
+                  //   color: Constants.primaryColor,
+                  //   borderRadius: BorderRadius.only(
+                  //     topLeft: Radius.circular(2.5.w),
+                  //     topRight: Radius.circular(5.w),
+                  //     bottomLeft: Radius.circular(10.w),
+                  //   ),
+                  // ),
+                  // child: Text(
+                  //   "Visit",
+                  //   style: GoogleFonts.rajdhani(
+                  //     color: Colors.white,
+                  //     fontWeight: FontWeight.bold,
+                  //   ),
+                  // ),
+                ),
+              ],
             ),
           ),
         ],

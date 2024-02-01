@@ -107,8 +107,9 @@ class _ContactScreenState extends State<ContactScreen> {
                         ),
                         Text(
                           "+91 0000000000",
-                          style:
-                              GoogleFonts.rajdhani(fontWeight: FontWeight.w500),
+                          style: GoogleFonts.rajdhani(
+                            fontWeight: FontWeight.w500,
+                          ),
                         )
                       ],
                     ),
@@ -125,7 +126,9 @@ class _ContactScreenState extends State<ContactScreen> {
                       TextFormField(
                         decoration: const InputDecoration(
                           labelText: "Name",
-                          prefixIcon: Icon(Icons.person),
+                          prefixIcon: Icon(
+                            Icons.person,
+                          ),
                         ),
                       ),
                       SizedBox(

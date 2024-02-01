@@ -22,6 +22,9 @@ class MainApplicationController extends GetxController {
   // Course Resources Screen
   var selectedMenu = 0.obs;
   var selectedMenuString = "websites".obs;
+
+  // Our Work
+  var expanded = false.obs;
   // List<Widget> resourcesScreen = [
   // const ResourcesWebsiteScreen(),
   // ];
