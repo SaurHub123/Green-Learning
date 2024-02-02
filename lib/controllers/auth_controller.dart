@@ -54,7 +54,6 @@ class AuthController extends GetxController {
         phoneNumber: '+91${oneDayPhoneNumber.text}',
         verificationCompleted: (PhoneAuthCredential credential) {},
         verificationFailed: (FirebaseAuthException e) {
-          // Handle verification failed
           log(e.toString());
           otpSending.value = false;
         },
@@ -68,14 +67,12 @@ class AuthController extends GetxController {
     } catch (e) {
       log(e.toString());
       otpSending.value = false;
-      // Handle exceptions
     }
   }
 
   Future<void> verifyOtp() async {
     otpVerifying.value = true;
     try {
-      // Create a PhoneAuthCredential with the code
       PhoneAuthCredential credential = PhoneAuthProvider.credential(
         verificationId: vId,
         smsCode: oneDayOtp.text,
@@ -83,11 +80,18 @@ class AuthController extends GetxController {
 
       await _auth.signInWithCredential(credential);
       await checkUserExistence();
-
-      // Handle successful login, for example, navigate to the next screen
     } catch (e) {
       otpVerifying.value = false;
-      // Handle OTP verification failure
     }
   }
+
+  // Registration Screen
+  TextEditingController fullNameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController houseNoController = TextEditingController();
+  TextEditingController streetNoController = TextEditingController();
+  TextEditingController stateController = TextEditingController();
+  TextEditingController countryController = TextEditingController();
+  TextEditingController collegeNameController = TextEditingController();
+  TextEditingController courseController = TextEditingController();
 }

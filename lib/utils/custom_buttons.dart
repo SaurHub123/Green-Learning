@@ -101,4 +101,35 @@ class CustomButton {
       ),
     );
   }
+
+  static Widget secondaryGreyIconFilledButton(IconData iconData, String text) {
+    return Container(
+      width: 100.w,
+      height: 50,
+      decoration: BoxDecoration(
+        color: Colors.grey,
+        border: Border.all(color: Constants.darkGreenVariantColor, width: 2.sp),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Icon(
+            iconData,
+            size: 18.sp,
+            color: Colors.white,
+          ),
+          SizedBox(width: 2.5.w),
+          Text(
+            text,
+            style: GoogleFonts.rajdhani(
+              fontSize: 16.sp,
+              color: Colors.white,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }

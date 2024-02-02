@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:green_learning/services/global.dart';
 import 'package:green_learning/utils/constants.dart';
 import 'package:green_learning/views/auth/registration_form_screen.dart';
 import 'package:green_learning/views/common/about_us_screen.dart';
@@ -33,7 +34,8 @@ class _AccountScreenState extends State<AccountScreen> {
                 child: FutureBuilder(
                     future: FirebaseFirestore.instance
                         .collection("users")
-                        .doc("8937936970")
+                        .doc(Global.storageServices
+                            .getString(Constants.phoneNumber))
                         .get(),
                     builder: (context, snapshot) {
                       if (snapshot.hasData) {
@@ -58,8 +60,9 @@ class _AccountScreenState extends State<AccountScreen> {
                             SizedBox(height: 2.h),
                             AccountComponents.profileTile(
                               "assets/images/avt1.png",
-                              "Sumit Sauravt1.png",
-                              "kajalrituraj2002@gmail.com",
+                              snapshot.data!.data()!["name"],
+                              Global.storageServices
+                                  .getString(Constants.phoneNumber)!,
                             ),
                             SizedBox(height: 2.h),
                             AccountComponents.completeProfileBtn(

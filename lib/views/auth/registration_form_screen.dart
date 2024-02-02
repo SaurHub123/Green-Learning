@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:green_learning/controllers/auth_controller.dart';
 import 'package:green_learning/utils/constants.dart';
+import 'package:green_learning/utils/custom_buttons.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class RegistrationFormScreen extends StatefulWidget {
@@ -17,10 +19,7 @@ class RegistrationFormScreen extends StatefulWidget {
 }
 
 class _RegistrationFormScreenState extends State<RegistrationFormScreen> {
-  final _firstnameController = TextEditingController();
-  final _lastnameController = TextEditingController();
-  final _emailController = TextEditingController();
-  final _phoneController = TextEditingController();
+  final AuthController _authController = Get.find();
 
   int _currentStep = 0;
 
@@ -66,6 +65,32 @@ class _RegistrationFormScreenState extends State<RegistrationFormScreen> {
               SizedBox(height: 2.h),
               Expanded(
                 child: Stepper(
+                  controlsBuilder:
+                      (BuildContext context, ControlsDetails details) {
+                    return Row(
+                      children: <Widget>[
+                        Expanded(
+                          child: InkWell(
+                            onTap: () {
+                              details.onStepContinue!();
+                            },
+                            child: CustomButton.secondaryIconFilledButton(
+                                Icons.next_plan_outlined, "Next"),
+                          ),
+                        ),
+                        SizedBox(width: 2.5.w),
+                        Expanded(
+                          child: InkWell(
+                            onTap: () {
+                              details.onStepCancel!();
+                            },
+                            child: CustomButton.secondaryGreyIconFilledButton(
+                                Icons.settings_backup_restore, "Cancel"),
+                          ),
+                        ),
+                      ],
+                    );
+                  },
                   steps: getSteps(),
                   onStepCancel: () {
                     if (_currentStep > 0) {
@@ -114,60 +139,192 @@ class _RegistrationFormScreenState extends State<RegistrationFormScreen> {
   List<Step> getSteps() {
     return [
       Step(
-        title: Text("Name"),
+        title: const Text("Personal Info"),
         content: Column(
           children: [
             SizedBox(height: 0.5.h),
             TextFormField(
-              controller: _firstnameController,
-              decoration: const InputDecoration(
-                labelText: "First Name",
-                border: OutlineInputBorder(),
+              controller: _authController.fullNameController,
+              validator: (value) {
+                if (value!.length < 3) {
+                  return "Invalid Name";
+                }
+
+                return "";
+              },
+              decoration: InputDecoration(
+                labelText: "Full Name",
+                focusedBorder: const UnderlineInputBorder(),
+                focusColor: Constants.primaryColor,
+                labelStyle: GoogleFonts.rajdhani(
+                  color: Constants.primaryColor,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
-
+              cursorColor: Constants.primaryColor,
             ),
-
-
             SizedBox(height: 2.h),
             TextFormField(
-              controller: _lastnameController,
-              decoration: const InputDecoration(
-                labelText: "Last Name",
-                border: OutlineInputBorder(),
-              ),
+              controller: _authController.emailController,
+              validator: (value) {
+                if (value!.length < 2) {
+                  return "Invalid email address";
+                }
 
-            )
-
-          ],
-        ),
-      ),
-      Step(
-        title: const Text("Email"),
-        content: Column(
-          children: [
-            SizedBox(height: 0.5.h),
-            TextFormField(
-              controller: _emailController,
-              decoration: const InputDecoration(
+                return "";
+              },
+              decoration: InputDecoration(
                 labelText: "Email",
-                border: OutlineInputBorder(),
+                focusedBorder: const UnderlineInputBorder(),
+                focusColor: Constants.primaryColor,
+                labelStyle: GoogleFonts.rajdhani(
+                  color: Constants.primaryColor,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
+              cursorColor: Constants.primaryColor,
             ),
             SizedBox(height: 2.h),
           ],
         ),
       ),
       Step(
-        title: const Text("Phone Number Field"),
+        title: const Text("Address"),
         content: Column(
           children: [
             SizedBox(height: 0.5.h),
             TextFormField(
-              controller: _phoneController,
-              decoration: const InputDecoration(
-                labelText: "Phone",
-                border: OutlineInputBorder(),
+              controller: _authController.houseNoController,
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return "Invalid House Number";
+                }
+
+                return "";
+              },
+              decoration: InputDecoration(
+                labelText: "House Number",
+                focusedBorder: const UnderlineInputBorder(),
+                focusColor: Constants.primaryColor,
+                labelStyle: GoogleFonts.rajdhani(
+                  color: Constants.primaryColor,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
+              cursorColor: Constants.primaryColor,
+            ),
+            SizedBox(height: 2.h),
+            TextFormField(
+              controller: _authController.streetNoController,
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return "Invalid Street Number";
+                }
+
+                return "";
+              },
+              decoration: InputDecoration(
+                labelText: "Street Number",
+                focusedBorder: const UnderlineInputBorder(),
+                focusColor: Constants.primaryColor,
+                labelStyle: GoogleFonts.rajdhani(
+                  color: Constants.primaryColor,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              cursorColor: Constants.primaryColor,
+            ),
+            SizedBox(height: 2.h),
+            TextFormField(
+              controller: _authController.stateController,
+              validator: (value) {
+                if (value!.length < 3) {
+                  return "Invalid State";
+                }
+
+                return "";
+              },
+              decoration: InputDecoration(
+                labelText: "State",
+                focusedBorder: const UnderlineInputBorder(),
+                focusColor: Constants.primaryColor,
+                labelStyle: GoogleFonts.rajdhani(
+                  color: Constants.primaryColor,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              cursorColor: Constants.primaryColor,
+            ),
+            SizedBox(height: 2.h),
+            TextFormField(
+              controller: _authController.countryController,
+              validator: (value) {
+                if (value!.length < 4) {
+                  return "Invalid Country";
+                }
+
+                return "";
+              },
+              decoration: InputDecoration(
+                labelText: "Country",
+                focusedBorder: const UnderlineInputBorder(),
+                focusColor: Constants.primaryColor,
+                labelStyle: GoogleFonts.rajdhani(
+                  color: Constants.primaryColor,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              cursorColor: Constants.primaryColor,
+            ),
+            SizedBox(height: 2.h),
+          ],
+        ),
+      ),
+      Step(
+        title: const Text("Education"),
+        content: Column(
+          children: [
+            SizedBox(height: 0.5.h),
+            TextFormField(
+              controller: _authController.collegeNameController,
+              validator: (value) {
+                if (value!.length < 10) {
+                  return "Invalid College Name";
+                }
+
+                return "";
+              },
+              decoration: InputDecoration(
+                labelText: "College Name",
+                focusedBorder: const UnderlineInputBorder(),
+                focusColor: Constants.primaryColor,
+                labelStyle: GoogleFonts.rajdhani(
+                  color: Constants.primaryColor,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              cursorColor: Constants.primaryColor,
+            ),
+            SizedBox(height: 2.h),
+            TextFormField(
+              controller: _authController.courseController,
+              validator: (value) {
+                if (value!.length < 2) {
+                  return "Invalid Course";
+                }
+
+                return "";
+              },
+              decoration: InputDecoration(
+                labelText: "Course",
+                focusedBorder: const UnderlineInputBorder(),
+                focusColor: Constants.primaryColor,
+                labelStyle: GoogleFonts.rajdhani(
+                  color: Constants.primaryColor,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              cursorColor: Constants.primaryColor,
             ),
             SizedBox(height: 2.h),
           ],
