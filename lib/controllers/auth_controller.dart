@@ -1,4 +1,6 @@
+import 'dart:async';
 import 'dart:developer';
+import 'dart:ffi';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -12,11 +14,55 @@ class AuthController extends GetxController {
   String vId = "";
   var otpSending = false.obs;
   var otpVerifying = false.obs;
+  var savingUser = false.obs;
+  var checkingName = false.obs;
 
   TextEditingController oneDayPhoneNumber = TextEditingController();
   TextEditingController oneDayOtp = TextEditingController();
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
+
+  Future<void> saveUser() async {
+    try {
+      var user = await FirebaseFirestore.instance
+          .collection("users")
+          .doc(oneDayPhoneNumber.text)
+          .get();
+
+
+      user.set({
+        'fullName': fullNameController.text,
+        'email': emailController.text,
+        'houseNo': houseNoController.text,
+        'streetNo': streetNoController.text,
+        'state': stateController.text,
+        'country': countryController.text,
+        'college': collegeNameController.text,
+        'course': courseController.text,
+      });
+      savingUser.value =true;
+    } catch (e) {
+      log(e.toString());
+      savingUser.value=false;
+    }
+  }
+
+  Future<void> checkUserName() async{
+
+    try {
+      var user = await FirebaseFirestore.instance.collection("user").doc(oneDayPhoneNumber.text).get();
+      
+      if(user.data().containsKey('name')){
+        Get.offAll(() => DashboardScreen());
+      }else{
+        Get.offAll(() => RegistrationScreen());
+      }
+      checkingName.value=true;
+    } catch (e) {
+      checkingName.value=false;
+    }
+
+  }
 
   Future<void> checkUserExistence() async {
     var db = await FirebaseFirestore.instance
